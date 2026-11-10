@@ -45,13 +45,13 @@ class DatabaseSeeder extends Seeder
         $participants->push($participant);
 
         $categories = collect([
-            ['name' => 'Teknologi', 'description' => 'Konferensi, workshop, dan meetup seputar dunia teknologi.', 'color' => '#4f46e5'],
-            ['name' => 'Bisnis', 'description' => 'Seminar dan pelatihan seputar kewirausahaan dan manajemen.', 'color' => '#0ea5e9'],
-            ['name' => 'Musik', 'description' => 'Konser, festival, dan pertunjukan musik dari berbagai genre.', 'color' => '#db2777'],
-            ['name' => 'Seni & Budaya', 'description' => 'Pameran seni, teater, dan pertunjukan budaya.', 'color' => '#f59e0b'],
-            ['name' => 'Olahraga', 'description' => 'Kompetisi, turnamen, dan kegiatan olahraga komunitas.', 'color' => '#10b981'],
-            ['name' => 'Pendidikan', 'description' => 'Pelatihan, bootcamp, dan kelas pengembangan keterampilan.', 'color' => '#8b5cf6'],
-            ['name' => 'Kesehatan', 'description' => 'Seminar kesehatan, kebugaran, dan gaya hidup sehat.', 'color' => '#14b8a6'],
+            ['name' => 'Teknologi', 'description' => 'Konferensi, workshop, dan meetup seputar dunia teknologi.', 'color' => '#10b981'],
+            ['name' => 'Bisnis', 'description' => 'Seminar dan pelatihan seputar kewirausahaan dan manajemen.', 'color' => '#f59e0b'],
+            ['name' => 'Musik', 'description' => 'Konser, festival, dan pertunjukan musik dari berbagai genre.', 'color' => '#f43f5e'],
+            ['name' => 'Seni & Budaya', 'description' => 'Pameran seni, teater, dan pertunjukan budaya.', 'color' => '#f97316'],
+            ['name' => 'Olahraga', 'description' => 'Kompetisi, turnamen, dan kegiatan olahraga komunitas.', 'color' => '#84cc16'],
+            ['name' => 'Pendidikan', 'description' => 'Pelatihan, bootcamp, dan kelas pengembangan keterampilan.', 'color' => '#eab308'],
+            ['name' => 'Kesehatan', 'description' => 'Seminar kesehatan, kebugaran, dan gaya hidup sehat.', 'color' => '#22c55e'],
             ['name' => 'Komunitas', 'description' => 'Acara gathering dan kolaborasi antar komunitas.', 'color' => '#ef4444'],
         ])->mapWithKeys(fn (array $category, int $index) => [
             $category['name'] => Category::create([

@@ -2,25 +2,24 @@
 
 @php
     $tones = [
-        'brand' => 'bg-brand-50 text-brand-700',
-        'emerald' => 'bg-emerald-50 text-emerald-700',
-        'amber' => 'bg-amber-50 text-amber-700',
-        'rose' => 'bg-rose-50 text-rose-700',
-        'sky' => 'bg-sky-50 text-sky-700',
-        'violet' => 'bg-violet-50 text-violet-700',
+        'brand' => 'bg-emerald-500/10 text-emerald-400 ring-emerald-500/20',
+        'emerald' => 'bg-emerald-500/10 text-emerald-400 ring-emerald-500/20',
+        'amber' => 'bg-amber-500/10 text-amber-400 ring-amber-500/20',
+        'rose' => 'bg-rose-500/10 text-rose-400 ring-rose-500/20',
+        'neutral' => 'bg-zinc-500/10 text-zinc-300 ring-zinc-500/20',
     ];
 @endphp
 
-<div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+<div class="rounded-xl border border-line bg-surface p-5">
     <div class="flex items-start justify-between gap-3">
         <div>
-            <p class="text-sm font-medium text-slate-500">{{ $label }}</p>
-            <p class="mt-2 text-2xl font-extrabold tracking-tight text-slate-900">{{ $value }}</p>
+            <p class="text-sm font-medium text-zinc-400">{{ $label }}</p>
+            <p class="mt-2 text-2xl font-bold tracking-tight text-ink">{{ $value }}</p>
             @if ($hint)
-                <p class="mt-1 text-xs text-slate-500">{{ $hint }}</p>
+                <p class="mt-1 text-xs text-zinc-500">{{ $hint }}</p>
             @endif
         </div>
-        <span class="flex size-11 shrink-0 items-center justify-center rounded-xl {{ $tones[$tone] ?? $tones['brand'] }}">
+        <span class="flex size-10 shrink-0 items-center justify-center rounded-lg ring-1 ring-inset {{ $tones[$tone] ?? $tones['brand'] }}">
             @if ($icon === 'users')
                 <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" /></svg>
             @elseif ($icon === 'calendar')

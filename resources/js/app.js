@@ -20,4 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    document.querySelectorAll('details[data-user-menu]').forEach((details) => {
+        document.addEventListener('click', (event) => {
+            if (details.open && !details.contains(event.target)) {
+                details.open = false;
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                details.open = false;
+            }
+        });
+    });
 });

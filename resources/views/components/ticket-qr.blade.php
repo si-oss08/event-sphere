@@ -56,8 +56,8 @@
 @endphp
 
 <svg viewBox="0 0 {{ $modules }} {{ $modules }}" class="h-full w-full" role="img" aria-label="Kode tiket {{ $code }}" shape-rendering="crispEdges">
-    <rect width="{{ $modules }}" height="{{ $modules }}" fill="#ffffff" />
+    <rect width="{{ $modules }}" height="{{ $modules }}" fill="#fafaf9" />
     @foreach ($cells as [$x, $y])
-        <rect x="{{ $x }}" y="{{ $y }}" width="1" height="1" fill="#0f172a" />
+        <rect x="{{ $x }}" y="{{ $y }}" width="1" height="1" fill="#18181b" />
     @endforeach
 </svg>

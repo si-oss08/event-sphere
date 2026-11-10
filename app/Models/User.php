@@ -85,6 +85,18 @@ class User extends Authenticatable
             return asset('storage/'.$this->avatar_path);
         }
 
-        return 'https://ui-avatars.com/api/?background=4f46e5&color=fff&name='.urlencode($this->name);
+        $parts = preg_split('/\s+/', trim($this->name)) ?: [];
+        $initials = collect($parts)
+            ->filter()
+            ->take(2)
+            ->map(fn (string $part): string => mb_strtoupper(mb_substr($part, 0, 1)))
+            ->implode('');
+
+        $svg = sprintf(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" rx="12" fill="#10b981"/><text x="48" y="50" fill="#0a0a0b" font-family="Arial, sans-serif" font-size="38" font-weight="700" text-anchor="middle" dominant-baseline="central">%s</text></svg>',
+            e($initials !== '' ? $initials : 'ES'),
+        );
+
+        return 'data:image/svg+xml;base64,'.base64_encode($svg);
     }
 }

@@ -27,7 +27,7 @@ class CategoryFactory extends Factory
             'name' => $name,
             'slug' => Str::slug($name),
             'description' => fake()->sentence(12),
-            'color' => fake()->randomElement(['#6366f1', '#0ea5e9', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6']),
+            'color' => fake()->randomElement(['#10b981', '#f59e0b', '#f43f5e', '#f97316', '#84cc16', '#ef4444']),
             'icon' => fake()->randomElement(['calendar', 'music', 'code', 'briefcase', 'sparkles']),
         ];
     }

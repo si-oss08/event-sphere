@@ -4,10 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Dashboard') — EventSphere</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('head')
 </head>
-<body class="min-h-screen bg-slate-100 font-sans text-slate-900 antialiased">
+<body class="min-h-screen bg-canvas font-sans text-ink antialiased">
     @php
         $user = auth()->user();
 
@@ -33,44 +38,44 @@
         };
     @endphp
 
-    <aside class="fixed inset-y-0 left-0 z-40 hidden w-72 flex-col border-r border-slate-200 bg-white lg:flex">
-        <div class="flex h-16 items-center gap-2.5 border-b border-slate-100 px-6">
+    <aside class="fixed inset-y-0 left-0 z-40 hidden w-72 flex-col border-r border-line bg-[#08080a] lg:flex">
+        <div class="flex h-16 items-center gap-2.5 border-b border-line px-6">
             <a href="{{ route('home') }}" class="flex items-center gap-2.5">
-                <span class="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-violet-600 text-white shadow-lg shadow-brand-600/20">
+                <span class="flex size-9 items-center justify-center rounded-lg bg-accent text-zinc-950">
                     <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>
                 </span>
-                <span class="text-lg font-extrabold tracking-tight text-slate-900">Event<span class="text-brand-600">Sphere</span></span>
+                <span class="text-lg font-bold tracking-tight text-ink">Event<span class="text-accent">Sphere</span></span>
             </a>
         </div>
 
         <div class="flex-1 overflow-y-auto px-4 py-6">
-            <p class="px-3 text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">Menu {{ $user->role->label() }}</p>
+            <p class="px-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-600">Menu {{ $user->role->label() }}</p>
             <nav class="mt-3 space-y-1">
                 @foreach ($navItems as $item)
-                    <a href="{{ route($item['route']) }}" class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition {{ request()->routeIs($item['active']) ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900' }}">
-                        <svg class="size-5 shrink-0 {{ request()->routeIs($item['active']) ? 'text-brand-600' : 'text-slate-400' }}" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $item['icon'] }}" /></svg>
+                    <a href="{{ route($item['route']) }}" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition {{ request()->routeIs($item['active']) ? 'bg-emerald-500/10 text-emerald-300' : 'text-zinc-400 hover:bg-surface-2 hover:text-ink' }}">
+                        <svg class="size-5 shrink-0 {{ request()->routeIs($item['active']) ? 'text-emerald-400' : 'text-zinc-500' }}" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $item['icon'] }}" /></svg>
                         {{ $item['label'] }}
                     </a>
                 @endforeach
             </nav>
 
-            <div class="mt-8 rounded-2xl bg-gradient-to-br from-brand-600 to-violet-700 p-4 text-white">
-                <p class="text-xs font-bold uppercase tracking-widest text-brand-200">EventSphere</p>
-                <p class="mt-2 text-sm font-semibold leading-snug">Kelola event lebih rapi dan profesional.</p>
-                <p class="mt-1 text-xs text-brand-100">Semua data tersaji dalam satu dasbor.</p>
+            <div class="mt-8 rounded-xl border border-emerald-500/20 bg-emerald-500/[0.04] p-4">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-400">EventSphere</p>
+                <p class="mt-2 text-sm font-semibold leading-snug text-zinc-200">Kelola event lebih rapi dan profesional.</p>
+                <p class="mt-1 text-xs leading-relaxed text-zinc-500">Semua data tersaji dalam satu dasbor.</p>
             </div>
         </div>
 
-        <div class="border-t border-slate-100 p-4">
-            <div class="flex items-center gap-3 rounded-xl bg-slate-50 p-3">
-                <img src="{{ $user->avatarUrl() }}" alt="{{ $user->name }}" class="size-9 rounded-full object-cover">
+        <div class="border-t border-line p-4">
+            <div class="flex items-center gap-3 rounded-lg border border-line bg-surface p-3">
+                <img src="{{ $user->avatarUrl() }}" alt="{{ $user->name }}" class="size-9 rounded-md object-cover">
                 <div class="min-w-0 flex-1">
-                    <p class="truncate text-sm font-bold text-slate-900">{{ $user->name }}</p>
-                    <p class="truncate text-xs text-slate-500">{{ $user->role->label() }}</p>
+                    <p class="truncate text-sm font-semibold text-ink">{{ $user->name }}</p>
+                    <p class="truncate text-xs text-zinc-500">{{ $user->role->label() }}</p>
                 </div>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" title="Keluar" class="flex size-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-white hover:text-rose-600">
+                    <button type="submit" title="Keluar" class="flex size-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-surface-2 hover:text-rose-400">
                         <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" /></svg>
                     </button>
                 </form>
@@ -79,37 +84,37 @@
     </aside>
 
     <div class="lg:pl-72">
-        <header class="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
+        <header class="sticky top-0 z-30 border-b border-line bg-canvas/95 backdrop-blur">
             <div class="flex h-16 items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center gap-3">
-                    <button type="button" data-mobile-toggle="#dashboard-menu" class="inline-flex size-10 items-center justify-center rounded-lg border border-slate-200 text-slate-700 lg:hidden">
+                    <button type="button" data-mobile-toggle="#dashboard-menu" class="inline-flex size-10 items-center justify-center rounded-lg border border-line text-zinc-300 lg:hidden">
                         <span class="sr-only">Buka menu</span>
                         <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
                     </button>
                     <div>
-                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">{{ $user->role->label() }}</p>
-                        <h1 class="text-base font-bold text-slate-900">@yield('heading', 'Dashboard')</h1>
+                        <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500">{{ $user->role->label() }}</p>
+                        <h1 class="text-base font-semibold text-ink">@yield('heading', 'Dashboard')</h1>
                     </div>
                 </div>
 
                 <div class="flex items-center gap-2">
-                    <a href="{{ route('events.index') }}" class="hidden items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:text-slate-900 sm:flex">
-                        <svg class="size-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
+                    <a href="{{ route('events.index') }}" class="hidden items-center gap-2 rounded-lg border border-line bg-surface px-3 py-2 text-sm font-medium text-zinc-300 transition hover:border-line-strong hover:text-ink sm:flex">
+                        <svg class="size-4 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
                         Cari Event
                     </a>
-                    <a href="{{ route('profile.edit') }}" class="flex items-center gap-2 rounded-full border border-slate-200 py-1 pl-1 pr-3 transition hover:border-slate-300">
-                        <img src="{{ $user->avatarUrl() }}" alt="{{ $user->name }}" class="size-8 rounded-full object-cover">
-                        <span class="hidden max-w-28 truncate text-sm font-semibold text-slate-800 sm:block">{{ $user->name }}</span>
+                    <a href="{{ route('profile.edit') }}" class="flex items-center gap-2 rounded-lg border border-line bg-surface py-1 pl-1 pr-3 transition hover:border-line-strong">
+                        <img src="{{ $user->avatarUrl() }}" alt="{{ $user->name }}" class="size-8 rounded-md object-cover">
+                        <span class="hidden max-w-40 truncate text-sm font-medium text-zinc-200 sm:block">{{ $user->name }}</span>
                     </a>
                 </div>
             </div>
 
-            <div id="dashboard-menu" class="hidden border-t border-slate-200 bg-white px-4 py-3 lg:hidden">
+            <div id="dashboard-menu" class="hidden border-t border-line bg-canvas px-4 py-3 lg:hidden">
                 <nav class="flex flex-col gap-1">
                     @foreach ($navItems as $item)
-                        <a href="{{ route($item['route']) }}" class="rounded-lg px-3 py-2 text-sm font-semibold {{ request()->routeIs($item['active']) ? 'bg-brand-50 text-brand-700' : 'text-slate-700 hover:bg-slate-50' }}">{{ $item['label'] }}</a>
+                        <a href="{{ route($item['route']) }}" class="rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs($item['active']) ? 'bg-emerald-500/10 text-emerald-300' : 'text-zinc-300 hover:bg-surface-2' }}">{{ $item['label'] }}</a>
                     @endforeach
-                    <a href="{{ route('profile.edit') }}" class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">Profil Saya</a>
+                    <a href="{{ route('profile.edit') }}" class="rounded-md px-3 py-2 text-sm font-medium text-zinc-300 hover:bg-surface-2">Profil Saya</a>
                 </nav>
             </div>
         </header>
