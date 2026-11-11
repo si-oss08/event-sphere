@@ -11,12 +11,12 @@
 
     <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <x-stat-card label="Total pengguna" :value="$summary['total']" hint="Semua peran" icon="users" tone="brand" />
-        <x-stat-card label="Penyelenggara" :value="$summary['organizer']" hint="Pengelola event" icon="calendar" tone="emerald" />
+        <x-stat-card label="Penyelenggara" :value="$summary['organizer']" hint="Pengelola event" icon="calendar" tone="gold" />
         <x-stat-card label="Peserta" :value="$summary['participant']" hint="Pendaftar event" icon="ticket" tone="neutral" />
         <x-stat-card label="Administrator" :value="$summary['admin']" hint="Akses penuh" icon="chart" tone="amber" />
     </div>
 
-    <form method="GET" class="flex flex-col gap-3 rounded-xl border border-line bg-surface p-4 sm:flex-row">
+    <form method="GET" class="flex flex-col gap-3 rounded-lg border border-line bg-surface p-4 sm:flex-row">
         <div class="relative flex-1">
             <div class="pointer-events-none absolute inset-y-0 left-0 z-10 flex items-center pl-3.5">
                 <svg class="size-4 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>

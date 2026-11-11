@@ -4,7 +4,8 @@
 
 @section('content')
     <div>
-        <h1 class="text-2xl font-bold tracking-tight text-ink">Buat akun EventSphere</h1>
+        <p class="eyebrow">Pendaftaran</p>
+        <h1 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-ink">Buat akun EventSphere</h1>
         <p class="mt-2 text-sm text-zinc-400">Gratis, dan hanya butuh kurang dari satu menit.</p>
 
         <form method="POST" action="{{ route('register.store') }}" class="mt-7 space-y-5">
@@ -13,12 +14,12 @@
             <div>
                 <span class="mb-2 block text-sm font-medium text-zinc-300">Saya mendaftar sebagai</span>
                 <div class="grid grid-cols-2 gap-3">
-                    <label class="relative flex cursor-pointer flex-col rounded-lg border border-line bg-surface p-3 transition hover:border-line-strong has-[:checked]:border-emerald-500/50 has-[:checked]:bg-emerald-500/[0.06]">
+                    <label class="relative flex cursor-pointer flex-col rounded-md border border-line bg-canvas p-3 transition hover:border-line-strong has-[:checked]:border-accent/60 has-[:checked]:bg-accent/[0.06]">
                         <input type="radio" name="role" value="participant" class="sr-only" @checked(old('role', 'participant') === 'participant') data-role-input>
                         <span class="text-sm font-semibold text-ink">Peserta</span>
                         <span class="mt-0.5 text-xs text-zinc-500">Cari &amp; ikuti event</span>
                     </label>
-                    <label class="relative flex cursor-pointer flex-col rounded-lg border border-line bg-surface p-3 transition hover:border-line-strong has-[:checked]:border-emerald-500/50 has-[:checked]:bg-emerald-500/[0.06]">
+                    <label class="relative flex cursor-pointer flex-col rounded-md border border-line bg-canvas p-3 transition hover:border-line-strong has-[:checked]:border-accent/60 has-[:checked]:bg-accent/[0.06]">
                         <input type="radio" name="role" value="organizer" class="sr-only" @checked(old('role') === 'organizer') data-role-input>
                         <span class="text-sm font-semibold text-ink">Penyelenggara</span>
                         <span class="mt-0.5 text-xs text-zinc-500">Buat &amp; kelola event</span>

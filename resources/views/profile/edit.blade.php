@@ -6,7 +6,7 @@
 @section('content')
     <div class="grid gap-6 lg:grid-cols-3">
         <div class="lg:col-span-1">
-            <div class="rounded-xl border border-line bg-surface p-6 text-center">
+            <div class="rounded-lg border border-line bg-surface p-6 text-center">
                 <img src="{{ $user->avatarUrl() }}" alt="{{ $user->name }}" class="mx-auto size-24 rounded-lg object-cover ring-1 ring-line">
                 <h2 class="mt-4 text-lg font-bold text-ink">{{ $user->name }}</h2>
                 <p class="text-sm text-zinc-500">{{ $user->email }}</p>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="lg:col-span-2">
-            <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="rounded-xl border border-line bg-surface">
+            <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="rounded-lg border border-line bg-surface">
                 @csrf
                 @method('PATCH')
 
@@ -51,7 +51,7 @@
 
                     <div class="sm:col-span-1">
                         <label for="avatar" class="label">Foto profil</label>
-                        <input id="avatar" type="file" name="avatar" accept="image/*" class="w-full rounded-lg border border-line bg-surface-2 px-3 py-2 text-sm text-zinc-400 file:mr-3 file:rounded-md file:border-0 file:bg-emerald-500/10 file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-emerald-300">
+                        <input id="avatar" type="file" name="avatar" accept="image/*" class="w-full rounded-md border border-line bg-canvas px-3 py-2 text-sm text-zinc-400 file:mr-3 file:rounded file:border-0 file:bg-accent/10 file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-accent">
                     </div>
 
                     @if ($user->isOrganizer())

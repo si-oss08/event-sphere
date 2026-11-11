@@ -4,7 +4,7 @@
 @section('heading', 'Ringkasan Peserta')
 
 @section('content')
-    <div class="rounded-xl border border-line bg-surface p-6 sm:p-8">
+    <div class="rounded-lg border border-line border-l-2 border-l-accent bg-surface p-6 sm:p-8">
         <div class="flex flex-wrap items-end justify-between gap-4">
             <div>
                 <p class="eyebrow">Halo, {{ auth()->user()->name }}</p>
@@ -20,7 +20,7 @@
 
     <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <x-stat-card label="Total pendaftaran" :value="$stats['total']" hint="Sepanjang waktu" icon="ticket" tone="brand" />
-        <x-stat-card label="Event mendatang" :value="$stats['upcoming']" hint="Tiket aktif" icon="calendar" tone="emerald" />
+        <x-stat-card label="Event mendatang" :value="$stats['upcoming']" hint="Tiket aktif" icon="calendar" tone="gold" />
         <x-stat-card label="Sudah hadir" :value="$stats['attended']" hint="Check-in berhasil" icon="users" tone="neutral" />
         <x-stat-card label="Dibatalkan" :value="$stats['cancelled']" hint="Tidak aktif" icon="chart" tone="rose" />
     </div>
@@ -66,7 +66,7 @@
         </div>
 
         <div class="space-y-4">
-            <div class="rounded-xl border border-line bg-surface p-5">
+            <div class="rounded-lg border border-line bg-surface p-5">
                 <div class="flex items-center justify-between">
                     <h2 class="text-base font-semibold text-ink">Rekomendasi</h2>
                     <a href="{{ route('events.index') }}" class="text-xs font-semibold text-accent hover:text-accent-soft">Semua</a>
@@ -87,9 +87,9 @@
                 </div>
             </div>
 
-            <div class="rounded-xl border border-emerald-500/20 bg-emerald-500/[0.04] p-5">
-                <h2 class="text-sm font-semibold text-emerald-300">Ingin menyelenggarakan event?</h2>
-                <p class="mt-1 text-xs leading-relaxed text-emerald-400/70">Hubungi admin untuk mengubah akun Anda menjadi penyelenggara, atau daftar akun baru sebagai penyelenggara.</p>
+            <div class="rounded-lg border border-accent/25 bg-accent/[0.04] p-5">
+                <h2 class="text-sm font-bold text-accent-soft">Ingin menyelenggarakan event?</h2>
+                <p class="mt-1.5 text-xs leading-relaxed text-accent/60">Hubungi admin untuk mengubah akun Anda menjadi penyelenggara, atau daftar akun baru sebagai penyelenggara.</p>
             </div>
         </div>
     </div>

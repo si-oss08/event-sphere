@@ -4,7 +4,8 @@
 
 @section('content')
     <div>
-        <h1 class="text-2xl font-bold tracking-tight text-ink">Selamat datang kembali</h1>
+        <p class="eyebrow">Akses Akun</p>
+        <h1 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-ink">Selamat datang kembali</h1>
         <p class="mt-2 text-sm text-zinc-400">Masuk untuk mengelola event dan tiket Anda.</p>
 
         <form method="POST" action="{{ route('login.store') }}" class="mt-8 space-y-5">
@@ -38,8 +39,8 @@
             <a href="{{ route('register') }}" class="font-semibold text-accent hover:text-accent-soft">Daftar sekarang</a>
         </p>
 
-        <div class="mt-8 rounded-xl border border-line bg-surface p-4">
-            <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500">Akun demo</p>
+        <div class="mt-8 rounded-lg border border-line bg-canvas p-4">
+            <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-accent">Akun demo</p>
             <div class="mt-3 grid gap-1.5 text-xs text-zinc-400">
                 <p><span class="font-semibold text-zinc-200">Admin:</span> admin@eventsphere.test / password</p>
                 <p><span class="font-semibold text-zinc-200">Penyelenggara:</span> organizer@eventsphere.test / password</p>

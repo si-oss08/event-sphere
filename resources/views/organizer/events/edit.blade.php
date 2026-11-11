@@ -22,7 +22,7 @@
 
         @include('organizer.events._form', ['event' => $event])
 
-        <div class="flex flex-wrap items-center justify-end gap-3 rounded-xl border border-line bg-surface p-4">
+        <div class="flex flex-wrap items-center justify-end gap-3 rounded-lg border border-line bg-surface p-4">
             <a href="{{ route('organizer.events.index') }}" class="btn-ghost">Batal</a>
             <button type="submit" class="btn-primary px-6">Simpan Perubahan</button>
         </div>

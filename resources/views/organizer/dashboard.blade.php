@@ -4,7 +4,7 @@
 @section('heading', 'Ringkasan Penyelenggara')
 
 @section('content')
-    <div class="rounded-xl border border-line bg-surface p-6 sm:p-8">
+    <div class="rounded-lg border border-line border-l-2 border-l-accent bg-surface p-6 sm:p-8">
         <div class="flex flex-wrap items-end justify-between gap-4">
             <div>
                 <p class="eyebrow">{{ auth()->user()->organization_name ?: 'Penyelenggara' }}</p>
@@ -20,9 +20,9 @@
 
     <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <x-stat-card label="Total event" :value="$stats['events']" hint="Semua status" icon="calendar" tone="brand" />
-        <x-stat-card label="Event terbit" :value="$stats['published']" hint="Tampil di publik" icon="chart" tone="emerald" />
+        <x-stat-card label="Event terbit" :value="$stats['published']" hint="Tampil di publik" icon="chart" tone="gold" />
         <x-stat-card label="Total pendaftar" :value="$stats['registrations']" hint="Seluruh event Anda" icon="users" tone="neutral" />
-        <x-stat-card label="Estimasi pendapatan" value="Rp {{ number_format($stats['revenue'], 0, ',', '.') }}" hint="Dari tiket terkonfirmasi" icon="money" tone="amber" />
+        <x-stat-card label="Estimasi pendapatan" value="Rp {{ number_format($stats['revenue'], 0, ',', '.') }}" hint="Dari tiket terkonfirmasi" icon="money" tone="amber" value-class="text-xl" />
     </div>
 
     <div class="grid gap-6 xl:grid-cols-5">

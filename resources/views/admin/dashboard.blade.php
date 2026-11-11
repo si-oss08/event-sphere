@@ -4,7 +4,7 @@
 @section('heading', 'Ringkasan Sistem')
 
 @section('content')
-    <div class="rounded-xl border border-line bg-surface p-6 sm:p-8">
+    <div class="rounded-lg border border-line border-l-2 border-l-accent bg-surface p-6 sm:p-8">
         <div class="flex flex-wrap items-end justify-between gap-4">
             <div>
                 <p class="eyebrow">Panel Administrator</p>
@@ -22,7 +22,7 @@
         <x-stat-card label="Total pengguna" :value="$stats['users']" :hint="$stats['organizers'].' penyelenggara · '.$stats['participants'].' peserta'" icon="users" tone="brand" />
         <x-stat-card label="Total event" :value="$stats['events']" :hint="$stats['published'].' event terbit'" icon="calendar" tone="neutral" />
         <x-stat-card label="Total pendaftaran" :value="$stats['registrations']" hint="Seluruh platform" icon="ticket" tone="neutral" />
-        <x-stat-card label="Estimasi pendapatan" value="Rp {{ number_format($stats['revenue'], 0, ',', '.') }}" hint="Tiket terkonfirmasi" icon="money" tone="amber" />
+        <x-stat-card label="Estimasi pendapatan" value="Rp {{ number_format($stats['revenue'], 0, ',', '.') }}" hint="Tiket terkonfirmasi" icon="money" tone="amber" value-class="text-xl" />
     </div>
 
     <div class="grid gap-6 xl:grid-cols-5">
@@ -85,7 +85,7 @@
                 </ul>
             </div>
 
-            <div class="rounded-xl border border-line bg-surface p-5">
+            <div class="rounded-lg border border-line bg-surface p-5">
                 <div class="flex items-center justify-between">
                     <h2 class="text-base font-semibold text-ink">Kategori teratas</h2>
                     <a href="{{ route('admin.categories.index') }}" class="text-xs font-semibold text-accent hover:text-accent-soft">Kelola</a>

@@ -19,17 +19,17 @@
 
         <div class="mt-6 grid gap-8 lg:grid-cols-3">
             <div class="lg:col-span-2">
-                <div class="overflow-hidden rounded-xl border border-line bg-surface">
+                <div class="overflow-hidden rounded-lg border border-line bg-surface">
                     <div class="relative aspect-[16/9] bg-surface-2">
                         <img src="{{ $event->posterUrl() }}" alt="Poster {{ $event->title }}" class="h-full w-full object-cover">
                         <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/75 to-transparent"></div>
                         <div class="absolute bottom-4 left-4 right-4 flex flex-wrap items-center gap-2">
                             @if ($event->category)
-                                <span class="rounded-md border border-white/10 bg-black/70 px-3 py-1 text-xs font-medium text-zinc-200 backdrop-blur-sm">{{ $event->category->name }}</span>
+                                <span class="rounded border border-line bg-canvas px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-accent">{{ $event->category->name }}</span>
                             @endif
-                            <span class="rounded-md px-3 py-1 text-xs font-semibold ring-1 ring-inset {{ $event->status->badgeClasses() }}">{{ $event->status->label() }}</span>
+                            <span class="rounded px-3 py-1 text-xs font-semibold ring-1 ring-inset {{ $event->status->badgeClasses() }}">{{ $event->status->label() }}</span>
                             @if ($event->featured)
-                                <span class="rounded-md bg-amber-500 px-3 py-1 text-xs font-bold text-zinc-950">★ Unggulan</span>
+                                <span class="rounded bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-zinc-950">★ Unggulan</span>
                             @endif
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                 </div>
 
                 @if ($event->organizer)
-                    <div class="mt-6 flex flex-col gap-4 rounded-xl border border-line bg-surface p-6 sm:flex-row sm:items-center sm:justify-between">
+                    <div class="mt-6 flex flex-col gap-4 rounded-lg border border-line bg-surface p-6 sm:flex-row sm:items-center sm:justify-between">
                         <div class="flex items-center gap-3">
                             <img src="{{ $event->organizer->avatarUrl() }}" alt="{{ $event->organizer->name }}" class="size-12 rounded-lg object-cover ring-1 ring-line">
                             <div>
@@ -100,7 +100,7 @@
                                 @endif
                             </div>
                         </div>
-                        <span class="inline-flex items-center gap-1.5 self-start rounded-md border border-emerald-500/25 bg-emerald-500/[0.06] px-3 py-1.5 text-xs font-semibold text-emerald-300 sm:self-auto">
+                        <span class="inline-flex items-center gap-1.5 self-start rounded-md border border-accent/25 bg-accent/[0.05] px-3 py-1.5 text-xs font-semibold text-accent-soft sm:self-auto">
                             <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
                             Penyelenggara terverifikasi
                         </span>
@@ -110,7 +110,7 @@
 
             <aside class="lg:col-span-1">
                 <div class="sticky top-24 space-y-4">
-                    <div class="rounded-xl border border-line bg-surface p-6">
+                    <div class="rounded-lg border border-line bg-surface p-6">
                         <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-500">Harga tiket</p>
                         <p class="mt-1 text-3xl font-bold tracking-tight text-ink">{{ $event->formattedPrice() }}</p>
                         <p class="text-xs text-zinc-500">{{ $event->isFree() ? 'Tidak dipungut biaya' : 'per peserta' }}</p>
@@ -133,7 +133,7 @@
                                     <p class="mt-1 text-xs text-zinc-500">Pendaftaran sudah ditutup.</p>
                                 </div>
                             @elseif ($event->isSoldOut())
-                                <div class="rounded-lg border border-rose-500/25 bg-rose-500/[0.06] p-4 text-center">
+                                <div class="rounded-lg border border-danger/25 bg-danger/[0.05] p-4 text-center">
                                     <p class="text-sm font-semibold text-rose-300">Kuota penuh</p>
                                     <p class="mt-1 text-xs text-rose-400/80">Semua kursi untuk event ini sudah terisi.</p>
                                 </div>
@@ -146,11 +146,11 @@
                                 </p>
                             @elseif (auth()->user()->isParticipant())
                                 @if ($registration && $registration->status !== \App\RegistrationStatus::Cancelled)
-                                    <div class="rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] p-4 text-center">
-                                        <p class="text-sm font-semibold text-emerald-300">Anda sudah terdaftar</p>
-                                        <p class="mt-1 text-xs text-emerald-400/80">Kode tiket: {{ $registration->ticket_code }}</p>
+                                    <div class="rounded-lg border border-accent/25 bg-accent/[0.05] p-4 text-center">
+                                        <p class="text-sm font-semibold text-accent-soft">Anda sudah terdaftar</p>
+                                        <p class="mt-1 text-xs text-accent/70">Kode tiket: {{ $registration->ticket_code }}</p>
                                     </div>
-                                    <a href="{{ route('registrations.show', $registration) }}" class="btn-secondary mt-3 w-full py-3 text-emerald-300 hover:border-emerald-500/40">
+                                    <a href="{{ route('registrations.show', $registration) }}" class="btn-secondary mt-3 w-full py-3 text-accent hover:border-accent/40">
                                         Lihat Tiket Saya
                                     </a>
                                 @else
@@ -172,7 +172,7 @@
                         </div>
                     </div>
 
-                    <div class="rounded-xl border border-line bg-surface p-5">
+                    <div class="rounded-lg border border-line bg-surface p-5">
                         <h2 class="text-sm font-semibold text-ink">Informasi penting</h2>
                         <ul class="mt-3 space-y-2.5 text-xs text-zinc-400">
                             <li class="flex gap-2"><span class="mt-1.5 size-1 shrink-0 rounded-full bg-accent"></span> Tiket digital wajib ditunjukkan saat masuk.</li>

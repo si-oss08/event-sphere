@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
-        <div class="rounded-xl border border-line bg-surface p-8 text-center sm:p-12">
+        <div class="rounded-lg border border-line bg-surface p-8 text-center sm:p-12">
             <p class="text-xs font-semibold uppercase tracking-[0.18em] text-rose-400">403 — Akses ditolak</p>
             <h1 class="mt-3 text-3xl font-bold tracking-tight text-ink">Anda tidak memiliki akses ke halaman ini</h1>
             <p class="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">

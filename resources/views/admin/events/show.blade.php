@@ -14,14 +14,14 @@
 
     <div class="grid gap-6 xl:grid-cols-3">
         <div class="space-y-6 xl:col-span-2">
-            <div class="overflow-hidden rounded-xl border border-line bg-surface">
+            <div class="overflow-hidden rounded-lg border border-line bg-surface">
                 <img src="{{ $event->posterUrl() }}" alt="" class="aspect-[16/7] w-full object-cover">
                 <div class="p-6">
                     <div class="flex flex-wrap items-center gap-2">
                         <span class="rounded-md px-2.5 py-1 text-[11px] font-semibold ring-1 ring-inset {{ $event->status->badgeClasses() }}">{{ $event->status->label() }}</span>
                         <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-[11px] font-medium text-zinc-300">{{ $event->category?->name ?? 'Tanpa kategori' }}</span>
                         @if ($event->featured)
-                            <span class="rounded-md border border-amber-500/25 bg-amber-500/10 px-2.5 py-1 text-[11px] font-semibold text-amber-300">★ Unggulan</span>
+                            <span class="rounded border border-accent/25 bg-accent/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-accent-soft">★ Unggulan</span>
                         @endif
                     </div>
 
@@ -75,7 +75,7 @@
         </div>
 
         <aside class="space-y-4">
-            <div class="rounded-xl border border-line bg-surface p-5">
+            <div class="rounded-lg border border-line bg-surface p-5">
                 <h3 class="text-sm font-semibold text-ink">Penyelenggara</h3>
                 <div class="mt-3 flex items-center gap-3">
                     <img src="{{ $event->organizer->avatarUrl() }}" alt="" class="size-11 rounded-lg object-cover">
@@ -89,7 +89,7 @@
                 @endif
             </div>
 
-            <div class="rounded-xl border border-line bg-surface p-5">
+            <div class="rounded-lg border border-line bg-surface p-5">
                 <h3 class="text-sm font-semibold text-ink">Ubah status event</h3>
                 <p class="mt-1 text-xs text-zinc-500">Status menentukan visibilitas event di halaman publik.</p>
                 <form method="POST" action="{{ route('admin.events.status', $event) }}" class="mt-3 space-y-2">
@@ -104,13 +104,13 @@
                 </form>
             </div>
 
-            <div class="rounded-xl border border-rose-500/25 bg-rose-500/[0.04] p-5">
+            <div class="rounded-lg border border-danger/25 bg-danger/[0.04] p-5">
                 <h3 class="text-sm font-semibold text-rose-300">Zona berbahaya</h3>
                 <p class="mt-1 text-xs leading-relaxed text-rose-400/80">Menghapus event akan menghapus seluruh pendaftaran terkait secara permanen.</p>
                 <form method="POST" action="{{ route('admin.events.destroy', $event) }}" onsubmit="return confirm('Hapus event ini secara permanen?')" class="mt-3">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="w-full rounded-lg bg-rose-500 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-rose-600">Hapus Event</button>
+                    <button type="submit" class="w-full rounded-lg bg-danger px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-rose-600">Hapus Event</button>
                 </form>
             </div>
         </aside>

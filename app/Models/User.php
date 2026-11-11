@@ -93,7 +93,7 @@ class User extends Authenticatable
             ->implode('');
 
         $svg = sprintf(
-            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" rx="12" fill="#10b981"/><text x="48" y="50" fill="#0a0a0b" font-family="Arial, sans-serif" font-size="38" font-weight="700" text-anchor="middle" dominant-baseline="central">%s</text></svg>',
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" rx="12" fill="#fbbf24"/><text x="48" y="50" fill="#09090b" font-family="Arial, sans-serif" font-size="38" font-weight="700" text-anchor="middle" dominant-baseline="central">%s</text></svg>',
             e($initials !== '' ? $initials : 'ES'),
         );
 

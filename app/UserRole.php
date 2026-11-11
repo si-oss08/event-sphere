@@ -26,8 +26,8 @@ enum UserRole: string
     public function badgeClasses(): string
     {
         return match ($this) {
-            self::Admin => 'bg-amber-500/10 text-amber-300 ring-amber-500/30',
-            self::Organizer => 'bg-emerald-500/10 text-emerald-300 ring-emerald-500/30',
+            self::Admin => 'bg-accent/15 text-accent ring-accent/40',
+            self::Organizer => 'bg-accent/[0.06] text-accent-soft ring-accent/25',
             self::Participant => 'bg-zinc-500/10 text-zinc-300 ring-zinc-500/30',
         };
     }

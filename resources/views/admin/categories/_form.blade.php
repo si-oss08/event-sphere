@@ -2,7 +2,7 @@
     $model = $category ?? null;
 @endphp
 
-<div class="rounded-xl border border-line bg-surface">
+<div class="rounded-lg border border-line bg-surface">
     <div class="border-b border-line px-6 py-4">
         <h2 class="text-base font-semibold text-ink">Informasi kategori</h2>
         <p class="mt-0.5 text-sm text-zinc-500">Nama kategori akan tampil pada filter dan kartu event.</p>
@@ -22,8 +22,8 @@
         <div>
             <label for="color" class="label">Warna kategori <span class="text-rose-400">*</span></label>
             <div class="flex items-center gap-3">
-                <input id="color" type="color" name="color" value="{{ old('color', $model?->color ?? '#10b981') }}" class="h-11 w-28 cursor-pointer rounded-lg border border-line bg-surface-2 p-1">
-                <span class="text-xs text-zinc-500">Gunakan emerald, amber, atau warna hangat lainnya.</span>
+                <input id="color" type="color" name="color" value="{{ old('color', $model?->color ?? '#fbbf24') }}" class="h-11 w-28 cursor-pointer rounded-md border border-line bg-canvas p-1">
+                <span class="text-xs text-zinc-500">Gunakan palet emas (#FBBF24) atau krim hangat agar konsisten.</span>
             </div>
         </div>
     </div>

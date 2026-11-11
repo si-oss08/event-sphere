@@ -17,9 +17,9 @@
 
     <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         @forelse ($categories as $category)
-            <div class="rounded-xl border border-line bg-surface p-5">
+            <div class="rounded-lg border border-line bg-surface p-5">
                 <div class="flex items-start justify-between gap-3">
-                    <span class="flex size-10 items-center justify-center rounded-lg border border-line bg-surface-2" style="color: {{ $category->color }}">
+                    <span class="flex size-10 items-center justify-center rounded-md border border-line bg-surface-2 text-accent">
                         <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" /></svg>
                     </span>
                     <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-[11px] font-medium text-zinc-400">{{ $category->events_count }} event</span>
@@ -38,7 +38,7 @@
                 </div>
             </div>
         @empty
-            <div class="rounded-xl border border-dashed border-line bg-surface p-10 text-center sm:col-span-2 xl:col-span-3">
+            <div class="rounded-lg border border-dashed border-line bg-surface p-10 text-center sm:col-span-2 xl:col-span-3">
                 <p class="text-sm font-semibold text-zinc-200">Belum ada kategori</p>
                 <p class="mt-1 text-sm text-zinc-500">Tambahkan kategori untuk mengelompokkan event.</p>
             </div>

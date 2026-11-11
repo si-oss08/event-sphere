@@ -16,7 +16,7 @@
     </section>
 
     <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <form method="GET" action="{{ route('events.index') }}" class="rounded-xl border border-line bg-surface p-4">
+        <form method="GET" action="{{ route('events.index') }}" class="rounded-lg border border-line bg-surface p-4">
             <div class="grid gap-3 md:grid-cols-12">
                 <div class="md:col-span-4">
                     <label for="q" class="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-500">Kata kunci</label>
@@ -77,7 +77,7 @@
                     @if ($filters['city'] ?? null)
                         <span class="rounded-md border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-zinc-300">{{ $filters['city'] }}</span>
                     @endif
-                    <a href="{{ route('events.index') }}" class="text-xs font-semibold text-rose-400 hover:text-rose-300">Reset</a>
+                    <a href="{{ route('events.index') }}" class="text-xs font-semibold text-accent hover:text-accent-soft">Reset</a>
                 </div>
             @endif
         </form>
@@ -90,7 +90,7 @@
         </div>
 
         @if ($events->isEmpty())
-            <div class="mt-6 rounded-xl border border-dashed border-line bg-surface p-14 text-center">
+            <div class="mt-6 rounded-lg border border-dashed border-line bg-surface p-14 text-center">
                 <span class="mx-auto flex size-14 items-center justify-center rounded-lg border border-line bg-surface-2 text-zinc-500">
                     <svg class="size-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>
                 </span>

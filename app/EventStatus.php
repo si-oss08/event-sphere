@@ -29,9 +29,9 @@ enum EventStatus: string
     {
         return match ($this) {
             self::Draft => 'bg-zinc-500/10 text-zinc-300 ring-zinc-500/30',
-            self::Published => 'bg-emerald-500/10 text-emerald-300 ring-emerald-500/30',
-            self::Cancelled => 'bg-rose-500/10 text-rose-300 ring-rose-500/30',
-            self::Completed => 'bg-amber-500/10 text-amber-300 ring-amber-500/30',
+            self::Published => 'bg-accent/10 text-accent-soft ring-accent/30',
+            self::Cancelled => 'bg-danger/10 text-rose-300 ring-danger/30',
+            self::Completed => 'bg-zinc-500/10 text-zinc-300 ring-zinc-500/30',
         };
     }
 

@@ -3,7 +3,7 @@
 @endphp
 
 <div class="space-y-6">
-    <div class="rounded-xl border border-line bg-surface">
+    <div class="rounded-lg border border-line bg-surface">
         <div class="border-b border-line px-6 py-4">
             <h2 class="text-base font-semibold text-ink">Informasi dasar</h2>
             <p class="mt-0.5 text-sm text-zinc-500">Detail utama yang akan dilihat calon peserta.</p>
@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <div class="rounded-xl border border-line bg-surface">
+    <div class="rounded-lg border border-line bg-surface">
         <div class="border-b border-line px-6 py-4">
             <h2 class="text-base font-semibold text-ink">Waktu &amp; lokasi</h2>
             <p class="mt-0.5 text-sm text-zinc-500">Kapan dan di mana event akan berlangsung.</p>
@@ -85,7 +85,7 @@
         </div>
     </div>
 
-    <div class="rounded-xl border border-line bg-surface">
+    <div class="rounded-lg border border-line bg-surface">
         <div class="border-b border-line px-6 py-4">
             <h2 class="text-base font-semibold text-ink">Tiket &amp; media</h2>
             <p class="mt-0.5 text-sm text-zinc-500">Atur kuota, harga tiket, dan poster event.</p>
@@ -105,7 +105,7 @@
 
             <div class="sm:col-span-2">
                 <label for="poster" class="label">Poster event</label>
-                <input id="poster" type="file" name="poster" accept="image/*" class="w-full rounded-lg border border-line bg-surface-2 px-3 py-2 text-sm text-zinc-400 file:mr-3 file:rounded-md file:border-0 file:bg-emerald-500/10 file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-emerald-300">
+                <input id="poster" type="file" name="poster" accept="image/*" class="w-full rounded-md border border-line bg-canvas px-3 py-2 text-sm text-zinc-400 file:mr-3 file:rounded file:border-0 file:bg-accent/10 file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-accent">
                 <p class="mt-1 text-xs text-zinc-500">Format JPG, PNG, atau WebP. Maksimal 4 MB. Rasio ideal 16:9.</p>
 
                 @if ($model?->poster_path)
