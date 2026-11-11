@@ -3,11 +3,12 @@
 @section('title', 'EventSphere — Temukan & Kelola Event Terbaik')
 
 @section('content')
-    <section class="relative overflow-hidden border-b border-line bg-canvas">
+    <section class="relative isolate overflow-hidden border-b border-line bg-canvas">
         <div class="bg-grid absolute inset-0 opacity-50"></div>
+        <div aria-hidden="true" class="pointer-events-none absolute -left-40 -top-40 size-[600px] rounded-full bg-amber-500/10 blur-[150px]"></div>
         <div class="absolute inset-y-0 left-0 w-px bg-accent/40"></div>
 
-        <div class="relative mx-auto grid max-w-7xl gap-14 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-24">
+        <div class="relative z-10 mx-auto grid max-w-7xl gap-14 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-24">
             <div class="lg:col-span-7">
                 <p class="eyebrow">Sistem Informasi Penyelenggaraan Event</p>
 
@@ -103,8 +104,9 @@
     @endif
 
     @if ($categories->isNotEmpty())
-        <section class="border-y border-line bg-surface py-16">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <section class="relative isolate overflow-hidden border-y border-line bg-surface py-16">
+            <div aria-hidden="true" class="pointer-events-none absolute right-0 top-1/2 size-[500px] -translate-y-1/2 rounded-full bg-amber-500/10 blur-[150px]"></div>
+            <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap items-end justify-between gap-4">
                     <div>
                         <p class="eyebrow">Kategori</p>
@@ -155,8 +157,9 @@
     </section>
 
     <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div class="overflow-hidden rounded-lg border border-line bg-surface">
-            <div class="grid items-center gap-8 border-l-2 border-accent p-8 sm:p-10 lg:grid-cols-2 lg:p-12">
+        <div class="relative isolate overflow-hidden rounded-lg border border-line bg-surface">
+            <div aria-hidden="true" class="pointer-events-none absolute -bottom-40 left-1/4 size-[600px] rounded-full bg-amber-500/10 blur-[150px]"></div>
+            <div class="relative z-10 grid items-center gap-8 border-l-2 border-accent p-8 sm:p-10 lg:grid-cols-2 lg:p-12">
                 <div>
                     <p class="eyebrow">Untuk Penyelenggara</p>
                     <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">

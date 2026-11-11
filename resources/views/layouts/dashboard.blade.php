@@ -12,7 +12,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('head')
 </head>
-<body class="min-h-screen bg-canvas font-sans text-ink antialiased">
+<body class="relative isolate min-h-screen bg-canvas font-sans text-ink antialiased">
+    <x-ambient-background />
+
     @php
         $user = auth()->user();
 
@@ -123,7 +125,7 @@
             </div>
         </header>
 
-        <main class="px-4 py-6 sm:px-6 lg:px-8">
+        <main class="relative z-10 px-4 py-6 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-7xl space-y-6">
                 <x-flash />
                 @yield('content')

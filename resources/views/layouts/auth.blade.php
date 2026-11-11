@@ -11,21 +11,22 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="min-h-screen bg-canvas font-sans text-ink antialiased">
-    <div class="grid min-h-screen lg:grid-cols-[1.1fr_0.9fr]">
-        <aside class="relative hidden overflow-hidden bg-canvas p-12 lg:flex lg:flex-col lg:justify-between">
+<body class="relative isolate min-h-screen bg-canvas font-sans text-ink antialiased">
+    <div class="relative z-10 grid min-h-screen lg:grid-cols-[1.1fr_0.9fr]">
+        <aside class="relative z-10 hidden overflow-hidden bg-canvas p-12 lg:flex lg:flex-col lg:justify-between">
+            <x-ambient-background />
             <div class="bg-grid absolute inset-0 opacity-50"></div>
             <div class="absolute inset-y-0 right-0 w-px bg-line"></div>
             <div class="absolute inset-y-0 right-0 w-px translate-x-px bg-accent/30"></div>
 
-            <a href="{{ route('home') }}" class="relative flex items-center gap-2.5">
+            <a href="{{ route('home') }}" class="relative z-10 flex items-center gap-2.5">
                 <span class="flex size-10 items-center justify-center rounded-md bg-accent text-zinc-950">
                     <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>
                 </span>
                 <span class="font-display text-lg font-extrabold tracking-tight text-ink">Event<span class="text-accent">Sphere</span></span>
             </a>
 
-            <div class="relative max-w-lg">
+            <div class="relative z-10 max-w-lg">
                 <p class="eyebrow">Sistem Informasi Event</p>
                 <h1 class="mt-5 text-balance font-display text-4xl font-extrabold leading-[1.08] text-ink xl:text-5xl">
                     Kelola setiap acara.
@@ -52,11 +53,14 @@
                 </div>
             </div>
 
-            <p class="relative text-xs text-zinc-600">&copy; {{ date('Y') }} EventSphere. Semua hak dilindungi.</p>
+            <p class="relative z-10 text-xs text-zinc-600">&copy; {{ date('Y') }} EventSphere. Semua hak dilindungi.</p>
         </aside>
 
-        <main class="flex items-center justify-center border-line bg-surface px-4 py-12 sm:px-8 lg:border-l">
-            <div class="w-full max-w-md">
+        <main class="relative z-10 flex items-center justify-center border-line bg-surface px-4 py-12 sm:px-8 lg:border-l">
+            <x-ambient-background />
+            <div aria-hidden="true" class="bg-grid pointer-events-none absolute inset-0 opacity-30"></div>
+
+            <div class="relative z-10 w-full max-w-md">
                 <a href="{{ route('home') }}" class="mb-10 flex items-center gap-2.5 lg:hidden">
                     <span class="flex size-10 items-center justify-center rounded-md bg-accent text-zinc-950">
                         <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>

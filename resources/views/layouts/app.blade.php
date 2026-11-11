@@ -15,7 +15,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('head')
 </head>
-<body class="min-h-screen bg-canvas font-sans text-ink antialiased">
+<body class="relative isolate min-h-screen bg-canvas font-sans text-ink antialiased">
+    <x-ambient-background />
+
     @php
         $user = auth()->user();
     @endphp
@@ -97,7 +99,7 @@
         </div>
     </header>
 
-    <main>
+    <main class="relative z-10">
         <div class="mx-auto max-w-7xl space-y-4 px-4 pt-6 sm:px-6 lg:px-8">
             <x-flash />
         </div>
@@ -105,7 +107,7 @@
         @yield('content')
     </main>
 
-    <footer class="mt-20 border-t border-line bg-surface">
+    <footer class="relative z-10 mt-20 border-t border-line bg-surface">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
             <div class="lg:col-span-2">
                 <a href="{{ route('home') }}" class="flex items-center gap-2.5">

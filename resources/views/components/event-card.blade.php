@@ -5,7 +5,7 @@
     $isLowStock = $remainingSeats > 0 && $remainingSeats <= 5;
 @endphp
 
-<div class="group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface transition hover:border-accent/40">
+<div class="group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface transition hover:border-amber-500/50 hover:shadow-[0_0_15px_rgba(251,191,36,0.1)]">
     <a href="{{ route('events.show', $event) }}" class="relative block aspect-[16/10] overflow-hidden bg-surface-2">
         <img src="{{ $event->posterUrl() }}" alt="Poster {{ $event->title }}" class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]">
         <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/80 to-transparent"></div>

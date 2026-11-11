@@ -224,9 +224,9 @@
 @layer utilities {
     .bg-grid {
         background-image:
-            linear-gradient(to right, rgb(255 255 255 / 0.03) 1px, transparent 1px),
-            linear-gradient(to bottom, rgb(255 255 255 / 0.03) 1px, transparent 1px);
-        background-size: 56px 56px;
+            linear-gradient(to right, #80808012 1px, transparent 1px),
+            linear-gradient(to bottom, #80808012 1px, transparent 1px);
+        background-size: 24px 24px;
     }
 
     .text-balance {
