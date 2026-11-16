@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2600" height="3700" viewBox="0 0 2600 3700" role="img" aria-labelledby="wfTitle wfDesc">
+  <title id="wfTitle">EventSphere — Wireframe UI</title>
+  <desc id="wfDesc">Sketsa tata letak delapan halaman utama EventSphere: beranda, katalog event, detail event, login, dasbor peserta, tiket digital, dasbor penyelenggara, dan dasbor admin.</desc>
+
+  <defs>
+    <style><![CDATA[
+      svg { font-family: Inter, 'Segoe UI', Arial, sans-serif; }
+      .frame { fill: #141418; stroke: #30303a; stroke-width: 1; }
+      .band { fill: #101013; }
+      .surface { fill: #18181d; stroke: #30303a; stroke-width: 1; }
+      .surface2 { fill: #1f1f26; stroke: #30303a; stroke-width: 1; }
+      .field { fill: #0e0e11; stroke: #363640; stroke-width: 1; }
+      .line { stroke: #2b2b34; stroke-width: 1; }
+      .dash { stroke: #3d3d47; stroke-width: 1; stroke-dasharray: 5 5; fill: none; }
+      .btn { fill: #f5b82e; }
+      .btn-outline { fill: none; stroke: #3d3d47; stroke-width: 1; }
+      .chip { fill: #23232a; stroke: #3c3c46; stroke-width: 1; }
+      .chip-amber { fill: #f5b82e; fill-opacity: .10; stroke: #f5b82e; stroke-opacity: .45; stroke-width: 1; }
+      .bar { fill: #f5b82e; }
+      .track { fill: #2c2c35; }
+      .dot { fill: #f5b82e; }
+      .t-board { font-size: 30px; font-weight: 800; fill: #f3f3f5; letter-spacing: -.4px; }
+      .t-hero { font-size: 40px; font-weight: 800; fill: #f3f3f5; letter-spacing: -.8px; }
+      .t-h1 { font-size: 26px; font-weight: 800; fill: #f3f3f5; letter-spacing: -.3px; }
+      .t-h2 { font-size: 17px; font-weight: 700; fill: #f3f3f5; }
+      .t-h3 { font-size: 13.5px; font-weight: 600; fill: #f3f3f5; }
+      .t-body { font-size: 12px; fill: #a2a2ac; }
+      .t-sm { font-size: 10.5px; fill: #8e8e99; }
+      .t-xs { font-size: 9px; fill: #7d7d88; }
+      .t-label { font-size: 8.5px; font-weight: 700; letter-spacing: 1.5px; fill: #8e8e99; }
+      .t-nav { font-size: 12px; font-weight: 500; fill: #b6b6c0; }
+      .t-btn { font-size: 11px; font-weight: 700; fill: #121216; }
+      .t-btn-sm { font-size: 10px; font-weight: 700; fill: #121216; }
+      .t-mono { font-family: Consolas, 'Cascadia Mono', monospace; font-size: 10.5px; fill: #f5b82e; letter-spacing: .4px; }
+      .t-frame { font-size: 12.5px; font-weight: 700; fill: #e8e8ec; }
+      .t-index { font-size: 10px; font-weight: 700; letter-spacing: 1.3px; fill: #f5b82e; }
+      .t-role { font-size: 8px; font-weight: 700; letter-spacing: 1.4px; fill: #8e8e99; }
+      .amber { fill: #f5b82e; }
+      .ink { fill: #f3f3f5; }
+      .muted { fill: #8e8e99; }
+      .dim { fill: #6f6f7a; }
+      .center { text-anchor: middle; }
+      .end { text-anchor: end; }
+      .clip { overflow: hidden; }
+    ]]></style>
+
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#232329" stroke-width="1"/>
+    </pattern>
+
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f5b82e" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#f5b82e" stop-opacity="0"/>
+    </radialGradient>
+
+    <symbol id="brand" viewBox="0 0 170 32">
+      <rect width="30" height="30" rx="6" fill="#f5b82e"/>
+      <g fill="none" stroke="#111114" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 7.5V10M21 7.5V10M6.5 12.5h17v11h-17z"/>
+        <path d="M6.5 16.5h17"/>
+      </g>
+      <text x="40" y="21" font-size="16" font-weight="800" fill="#f3f3f5">Event<tspan fill="#f5b82e">Sphere</tspan></text>
+    </symbol>
+
+    <symbol id="img" viewBox="0 0 160 100" preserveAspectRatio="none">
+      <rect width="160" height="100" fill="#202027"/>
+      <path d="M0 0 160 100M160 0 0 100" fill="none" stroke="#383842" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      <circle cx="80" cy="50" r="10" fill="none" stroke="#464652" stroke-width="1" vector-effect="non-scaling-stroke"/>
+    </symbol>
+
+    <symbol id="avatar" viewBox="0 0 40 40">
+      <rect width="40" height="40" rx="9" fill="#2b2b33"/>
+      <circle cx="20" cy="15" r="6" fill="#4d4d59"/>
+      <path d="M8 34c1.8-7 6-10 12-10s10.2 3 12 10" fill="#4d4d59"/>
+    </symbol>
+
+    <symbol id="qr" viewBox="0 0 84 84">
+      <rect width="84" height="84" fill="#f3f3ee"/>
+      <g fill="#17171a">
+        <path d="M5 5h18v18H5zM9 9h10v10H9z" fill-rule="evenodd"/>
+        <path d="M61 5h18v18H61zM65 9h10v10H65z" fill-rule="evenodd"/>
+        <path d="M5 61h18v18H5zM9 65h10v10H9z" fill-rule="evenodd"/>
+        <rect x="30" y="7" width="4" height="4"/><rect x="38" y="7" width="4" height="4"/>
+        <rect x="46" y="11" width="4" height="4"/><rect x="30" y="17" width="4" height="4"/>
+        <rect x="42" y="19" width="4" height="4"/><rect x="52" y="17" width="4" height="4"/>
+        <rect x="7" y="30" width="4" height="4"/><rect x="15" y="30" width="4" height="4"/>
+        <rect x="23" y="36" width="4" height="4"/><rect x="7" y="44" width="4" height="4"/>
+        <rect x="17" y="46" width="4" height="4"/><rect x="31" y="31" width="4" height="4"/>
+        <rect x="39" y="37" width="4" height="4"/><rect x="47" y="31" width="4" height="4"/>
+        <rect x="55" y="39" width="4" height="4"/><rect x="65" y="31" width="4" height="4"/>
+        <rect x="73" y="35" width="4" height="4"/><rect x="31" y="47" width="4" height="4"/>
+        <rect x="43" y="49" width="4" height="4"/><rect x="51" y="45" width="4" height="4"/>
+        <rect x="61" y="51" width="4" height="4"/><rect x="73" y="47" width="4" height="4"/>
+        <rect x="29" y="61" width="4" height="4"/><rect x="37" y="67" width="4" height="4"/>
+        <rect x="45" y="61" width="4" height="4"/><rect x="53" y="69" width="4" height="4"/>
+        <rect x="61" y="63" width="4" height="4"/><rect x="71" y="61" width="4" height="4"/>
+        <rect x="31" y="75" width="4" height="4"/><rect x="41" y="77" width="4" height="4"/>
+        <rect x="49" y="73" width="4" height="4"/><rect x="59" y="77" width="4" height="4"/>
+        <rect x="69" y="73" width="4" height="4"/><rect x="75" y="77" width="4" height="4"/>
+      </g>
+    </symbol>
+  </defs>
+
+  <!-- BOARD HEADER -->
+  <rect width="2600" height="3700" fill="#0c0c0f"/>
+  <text x="70" y="72" class="t-board">EventSphere <tspan class="amber">/</tspan> Wireframe UI</text>
+  <text x="70" y="102" class="t-body">Sketsa tata letak halaman utama berdasarkan implementasi Blade dan Tailwind aplikasi.</text>
+  <text x="2530" y="72" class="t-sm end">8 layar · 1200 × 800</text>
+  <text x="2530" y="94" class="t-sm end">Versi 1.0 · November 2026</text>
+  <line x1="70" y1="122" x2="2530" y2="122" class="line"/>
+
+  <!-- ==================== FRAME 01 · BERANDA ==================== -->
+  <g transform="translate(70,170)">
+    <text x="0" y="-16" class="t-index">01</text>
+    <text x="34" y="-16" class="t-frame">Beranda</text>
+    <text x="1200" y="-16" class="t-role end">PUBLIK</text>
+    <rect width="1200" height="800" class="frame" rx="4"/>
+    <rect width="1200" height="2" fill="#f5b82e" opacity=".85"/>
+
+    <!-- public header -->
+    <use href="#brand" x="24" y="16" width="170" height="32"/>
+    <text x="360" y="39" class="t-nav amber">Beranda</text>
+    <rect x="360" y="52" width="52" height="1.5" class="bar"/>
+    <text x="444" y="39" class="t-nav">Jelajahi Event</text>
+    <text x="1010" y="39" class="t-nav">Masuk</text>
+    <rect x="1064" y="16" width="112" height="32" rx="5" class="btn"/>
+    <text x="1120" y="37" class="t-btn center">Daftar Sekarang</text>
+    <line x1="0" y1="64" x2="1200" y2="64" class="line"/>
+
+    <!-- hero -->
+    <rect y="64" width="1200" height="368" class="band"/>
+    <rect y="64" width="1200" height="368" fill="url(#grid)" opacity=".5"/>
+    <circle cx="110" cy="230" r="290" fill="url(#glow)"/>
+    <rect x="0" y="64" width="2" height="368" class="bar" opacity=".45"/>
+
+    <text x="64" y="114" class="t-label amber">SISTEM INFORMASI PENYELENGGARAAN EVENT</text>
+    <text x="64" y="164" class="t-hero">Temukan event yang</text>
+    <text x="64" y="208" class="t-hero amber">menginspirasi.</text>
+    <text x="64" y="238" class="t-body">Dari konferensi teknologi hingga festival budaya — daftar dalam</text>
+    <text x="64" y="256" class="t-body">hitungan detik, kelola seluruh acara dalam satu dasbor.</text>
+
+    <rect x="64" y="278" width="628" height="52" rx="6" class="surface"/>
+    <rect x="72" y="286" width="472" height="36" rx="4" class="field"/>
+    <circle cx="90" cy="304" r="5" fill="none" stroke="#6f6f7a" stroke-width="1.5"/>
+    <line x1="94" y1="308" x2="99" y2="313" stroke="#6f6f7a" stroke-width="1.5"/>
+    <text x="108" y="309" class="t-sm">Cari nama event, kota, atau lokasi…</text>
+    <rect x="552" y="286" width="132" height="36" rx="4" class="btn"/>
+    <text x="618" y="308" class="t-btn center">Cari Event</text>
+
+    <circle cx="66" cy="360" r="2" class="dot"/>
+    <text x="76" y="363" class="t-xs">PENDAFTARAN INSTAN</text>
+    <circle cx="238" cy="360" r="2" class="dot"/>
+    <text x="248" y="363" class="t-xs">TIKET DIGITAL</text>
+    <circle cx="380" cy="360" r="2" class="dot"/>
+    <text x="390" y="363" class="t-xs">DASBOR PENYELENGGARA</text>
+
+    <!-- stats card -->
+    <rect x="764" y="96" width="372" height="298" rx="6" class="surface"/>
+    <rect x="764" y="96" width="372" height="2" class="bar"/>
+    <text x="788" y="130" class="t-h3">Ringkasan platform</text>
+    <text x="788" y="146" class="t-xs">Data terkini EventSphere</text>
+    <rect x="1060" y="110" width="52" height="20" rx="3" class="chip-amber"/>
+    <circle cx="1070" cy="120" r="2" class="dot"/>
+    <text x="1078" y="123" class="t-xs amber">LIVE</text>
+    <line x1="764" y1="160" x2="1136" y2="160" class="line"/>
+    <line x1="950" y1="160" x2="950" y2="346" class="line"/>
+    <line x1="764" y1="253" x2="1136" y2="253" class="line"/>
+    <text x="788" y="206" class="t-h1">14</text>
+    <text x="788" y="223" class="t-xs">EVENT AKTIF</text>
+    <text x="974" y="206" class="t-h1">4</text>
+    <text x="974" y="223" class="t-xs">PENYELENGGARA</text>
+    <text x="788" y="299" class="t-h1">25</text>
+    <text x="788" y="316" class="t-xs">PESERTA TERDAFTAR</text>
+    <text x="974" y="299" class="t-h1">126</text>
+    <text x="974" y="316" class="t-xs">PENDAFTARAN</text>
+    <line x1="764" y1="346" x2="1136" y2="346" class="line"/>
+    <text x="788" y="374" class="t-sm">Siap memulai event Anda?</text>
+    <text x="1112" y="374" class="t-sm amber end">Daftar sekarang →</text>
+
+    <!-- featured -->
+    <text x="64" y="466" class="t-label amber">PILIHAN EDITOR</text>
+    <text x="64" y="492" class="t-h1">Event unggulan minggu ini</text>
+    <text x="1136" y="492" class="t-sm amber end">Lihat semua →</text>
+
+    <!-- card 1 -->
+    <g transform="translate(64,516)">
+      <rect width="344" height="248" rx="6" class="surface"/>
+      <use href="#img" x="0" y="0" width="344" height="112"/>
+      <rect x="10" y="10" width="62" height="18" rx="3" class="chip"/>
+      <text x="41" y="22" class="t-xs center">TEKNOLOGI</text>
+      <rect x="10" y="86" width="66" height="20" rx="3" class="btn"/>
+      <text x="43" y="100" class="t-btn-sm center">Rp 150.000</text>
+      <text x="18" y="134" class="t-h3">Indonesia Tech Summit 2026</text>
+      <text x="18" y="153" class="t-sm">12 Des 2026, 09:00 WIB</text>
+      <text x="18" y="168" class="t-sm">Jakarta Convention Center</text>
+      <text x="18" y="188" class="t-xs">KUOTA TERISI</text>
+      <text x="326" y="188" class="t-xs end">272/400</text>
+      <rect x="18" y="194" width="308" height="3" rx="1.5" class="track"/>
+      <rect x="18" y="194" width="209" height="3" rx="1.5" class="bar"/>
+      <line x1="0" y1="214" x2="344" y2="214" class="line"/>
+      <text x="18" y="234" class="t-sm">12 kursi tersisa</text>
+      <text x="326" y="234" class="t-sm amber end">Detail →</text>
+    </g>
+
+    <!-- card 2 -->
+    <g transform="translate(428,516)">
+      <rect width="344" height="248" rx="6" class="surface"/>
+      <use href="#img" x="0" y="0" width="344" height="112"/>
+      <rect x="10" y="10" width="54" height="18" rx="3" class="chip"/>
+      <text x="37" y="22" class="t-xs center">KREATIF</text>
+      <rect x="10" y="86" width="48" height="20" rx="3" class="btn"/>
+      <text x="34" y="100" class="t-btn-sm center">Gratis</text>
+      <text x="18" y="134" class="t-h3">Jakarta Creative Week</text>
+      <text x="18" y="153" class="t-sm">18 Des 2026, 13:00 WIB</text>
+      <text x="18" y="168" class="t-sm">Kota Tua, Jakarta</text>
+      <text x="18" y="188" class="t-xs">KUOTA TERISI</text>
+      <text x="326" y="188" class="t-xs end">480/600</text>
+      <rect x="18" y="194" width="308" height="3" rx="1.5" class="track"/>
+      <rect x="18" y="194" width="246" height="3" rx="1.5" class="bar"/>
+      <line x1="0" y1="214" x2="344" y2="214" class="line"/>
+      <text x="18" y="234" class="t-sm">120 kursi tersisa</text>
+      <text x="326" y="234" class="t-sm amber end">Detail →</text>
+    </g>
+
+    <!-- card 3 -->
+    <g transform="translate(792,516)">
+      <rect width="344" height="248" rx="6" class="surface"/>
+      <use href="#img" x="0" y="0" width="344" height="112"/>
+      <rect x="10" y="10" width="48" height="18" rx="3" class="chip"/>
+      <text x="34" y="22" class="t-xs center">BUDAYA</text>
+      <rect x="10" y="86" width="60" height="20" rx="3" class="btn"/>
+      <text x="40" y="100" class="t-btn-sm center">Rp 75.000</text>
+      <text x="18" y="134" class="t-h3">Nusantara Cultural Festival</text>
+      <text x="18" y="153" class="t-sm">5 Jan 2027, 10:00 WIB</text>
+      <text x="18" y="168" class="t-sm">Taman Budaya, Yogyakarta</text>
+      <text x="18" y="188" class="t-xs">KUOTA TERISI</text>
+      <text x="326" y="188" class="t-xs end">640/800</text>
+      <rect x="18" y="194" width="308" height="3" rx="1.5" class="track"/>
+      <rect x="18" y="194" width="246" height="3" rx="1.5" class="bar"/>
+      <line x1="0" y1="214" x2="344" y2="214" class="line"/>
+      <text x="18" y="234" class="t-sm">160 kursi tersisa</text>
+      <text x="326" y="234" class="t-sm amber end">Detail →</text>
+    </g>
+  </g>
+
+  <!-- ==================== FRAME 02 · KATALOG ==================== -->
+  <g transform="translate(1330,170)">
+    <text x="0" y="-16" class="t-index">02</text>
+    <text x="34" y="-16" class="t-frame">Katalog event</text>
+    <text x="1200" y="-16" class="t-role end">PUBLIK</text>
+    <rect width="1200" height="800" class="frame" rx="4"/>
+    <rect width="1200" height="2" fill="#f5b82e" opacity=".85"/>
+
+    <use href="#brand" x="24" y="16" width="170" height="32"/>
+    <text x="360" y="39" class="t-nav">Beranda</text>
+    <text x="444" y="39" class="t-nav amber">Jelajahi Event</text>
+    <rect x="444" y="52" width="82" height="1.5" class="bar"/>
+    <text x="1010" y="39" class="t-nav">Masuk</text>
+    <rect x="1064" y="16" width="112" height="32" rx="5" class="btn"/>
+    <text x="1120" y="37" class="t-btn center">Daftar Sekarang</text>
+    <line x1="0" y1="64" x2="1200" y2="64" class="line"/>
+
+    <rect y="64" width="1200" height="86" class="band"/>
+    <rect y="64" width="1200" height="86" fill="url(#grid)" opacity=".4"/>
+    <text x="64" y="94" class="t-label amber">JELAJAHI</text>
+    <text x="64" y="121" class="t-h1">Temukan event berikutnya</text>
+    <text x="64" y="140" class="t-sm">Saring berdasarkan kategori, kota, dan harga. Pendaftaran dikelola langsung oleh penyelenggara.</text>
+
+    <!-- filter -->
+    <rect x="64" y="160" width="1072" height="98" rx="6" class="surface"/>
+    <text x="80" y="181" class="t-label">KATA KUNCI</text>
+    <rect x="80" y="190" width="300" height="36" rx="4" class="field"/>
+    <text x="94" y="213" class="t-sm">Nama event, lokasi…</text>
+    <text x="394" y="181" class="t-label">KATEGORI</text>
+    <rect x="394" y="190" width="210" height="36" rx="4" class="field"/>
+    <text x="408" y="213" class="t-sm">Semua kategori</text>
+    <text x="588" y="213" class="t-sm end">▾</text>
+    <text x="618" y="181" class="t-label">KOTA</text>
+    <rect x="618" y="190" width="180" height="36" rx="4" class="field"/>
+    <text x="632" y="213" class="t-sm">Semua kota</text>
+    <text x="782" y="213" class="t-sm end">▾</text>
+    <text x="812" y="181" class="t-label">URUTKAN</text>
+    <rect x="812" y="190" width="170" height="36" rx="4" class="field"/>
+    <text x="826" y="213" class="t-sm">Terdekat</text>
+    <text x="966" y="213" class="t-sm end">▾</text>
+    <rect x="996" y="190" width="124" height="36" rx="4" class="btn"/>
+    <text x="1058" y="213" class="t-btn center">Filter</text>
+
+    <text x="64" y="278" class="t-body">Menampilkan <tspan class="ink">1–6</tspan> dari <tspan class="ink">14</tspan> event</text>
+    <text x="1136" y="278" class="t-sm end">Urut: terdekat</text>
+
+    <!-- row 1 -->
+    <g transform="translate(64,292)">
+      <rect width="344" height="218" rx="6" class="surface"/>
+      <use href="#img" x="0" y="0" width="344" height="104"/>
+      <rect x="10" y="10" width="62" height="18" rx="3" class="chip"/>
+      <text x="41" y="22" class="t-xs center">TEKNOLOGI</text>
+      <rect x="10" y="78" width="66" height="20" rx="3" class="btn"/>
+      <text x="43" y="92" class="t-btn-sm center">Rp 150.000</text>
+      <text x="18" y="126" class="t-h3">Indonesia Tech Summit 2026</text>
+      <text x="18" y="145" class="t-sm">12 Des 2026, 09:00 WIB</text>
+      <text x="18" y="160" class="t-sm">Jakarta Convention Center</text>
+      <text x="18" y="180" class="t-xs">KUOTA TERISI</text>
+      <text x="326" y="180" class="t-xs end">272/400</text>
+      <rect x="18" y="186" width="308" height="3" rx="1.5" class="track"/>
+      <rect x="18" y="186" width="209" height="3" rx="1.5" class="bar"/>
+      <line x1="0" y1="200" x2="344" y2="200" class="line"/>
+      <text x="18" y="214" class="t-sm">128 kursi tersisa</text>
+      <text x="326" y="214" class="t-sm amber end">Detail →</text>
+    </g>
+
+    <g transform="translate(428,292)">
+      <rect width="344" height="218" rx="6" class="surface"/>
+      <use href="#img" x="0" y="0" width="344" height="104"/>
+      <rect x="10" y="10" width="54" height="18" rx="3" class="chip"/>
+      <text x="37" y="22" class="t-xs center">KREATIF</text>
+      <rect x="10" y="78" width="48" height="20" rx="3" class="btn"/>
+      <text x="34" y="92" class="t-btn-sm center">Gratis</text>
+      <text x="18" y="126" class="t-h3">Jakarta Creative Week</text>
+      <text x="18" y="145" class="t-sm">18 Des 2026, 13:00 WIB</text>
+      <text x="18" y="160" class="t-sm">Kota Tua, Jakarta</text>
+      <text x="18" y="180" class="t-xs">KUOTA TERISI</text>
+      <text x="326" y="180" class="t-xs end">480/600</text>
+      <rect x="18" y="186" width="308" height="3" rx="1.5" class="track"/>
+      <rect x="18" y="186" width="246" height="3" rx="1.5" class="bar"/>
+      <line x1="0" y1="200" x2="344" y2="200" class="line"/>
+      <text x="18" y="214" class="t-sm">120 kursi tersisa</text>
+      <text x="326" y="214" class="t-sm amber end">Detail →</text>
+    </g>
+
+    <g transform="translate(792,292)">
+      <rect width="344" height="218" rx="6" class="surface"/>
+      <use href="#img" x="0" y="0" width="344" height="104"/>
+      <rect x="10" y="10" width="48" height="18" rx="3" class="chip"/>
+      <text x="34" y="22" class="t-xs center">BUDAYA</text>
+      <rect x="10" y="78" width="60" height="20" rx="3" class="btn"/>
+      <text x="40" y="92" class="t-btn-sm center">Rp 75.000</text>
+      <text x="18" y="126" class="t-h3">Nusantara Cultural Festival</text>
+      <text x="18" y="145" class="t-sm">5 Jan 2027, 10:00 WIB</text>
+      <text x="18" y="160" class="t-sm">Taman Budaya, Yogyakarta</text>
+      <text x="18" y="180" class="t-xs">KUOTA TERISI</text>
+      <text x="326" y="180" class="t-xs end">640/800</text>
+      <rect x="18" y="186" width="308" height="3" rx="1.5" class="track"/>
+      <rect x="18" y="186" width="246" height="3" rx="1.5" class="bar"/>
+      <line x1="0" y1="200" x2="344" y2="200" class="line"/>
+      <text x="18" y="214" class="t-sm">160 kursi tersisa</text>
+      <text x="326" y="214" class="t-sm amber end">Detail →</text>
+    </g>
+
+    <!-- row 2 -->
+    <g transform="translate(64,524)">
+      <rect width="344" height="218" rx="6" class="surface"/>
+      <use href="#img" x="0" y="0" width="344" height="104"/>
+      <rect x="10" y="10" width="50" height="18" rx="3" class="chip"/>
+      <text x="35" y="22" class="t-xs center">BISNIS</text>
+      <rect x="10" y="78" width="62" height="20" rx="3" class="btn"/>
+      <text x="41" y="92" class="t-btn-sm center">Rp 50.000</text>
+      <text x="18" y="126" class="t-h3">Startup Founders Meetup</text>
+      <text x="18" y="145" class="t-sm">9 Jan 2027, 18:30 WIB</text>
+      <text x="18" y="160" class="t-sm">Coworking Space, Bandung</text>
+      <text x="18" y="180" class="t-xs">KUOTA TERISI</text>
+      <text x="326" y="180" class="t-xs end">88/100</text>
+      <rect x="18" y="186" width="308" height="3" rx="1.5" class="track"/>
+      <rect x="18" y="186" width="271" height="3" rx="1.5" class="bar"/>
+      <line x1="0" y1="200" x2="344" y2="200" class="line"/>
+      <text x="18" y="214" class="t-sm">12 kursi tersisa</text>
+      <text x="326" y="214" class="t-sm amber end">Detail →</text>
+    </g>
+
+    <g transform="translate(428,524)">
+      <rect width="344" height="218" rx="6" class="surface"/>
+      <use href="#img" x="0" y="0" width="344" height="104"/>
+      <rect x="10" y="10" width="44" height="18" rx="3" class="chip"/>
+      <text x="32" y="22" class="t-xs center">MUSIK</text>
+      <rect x="10" y="78" width="66" height="20" rx="3" class="btn"/>
+      <text x="43" y="92" class="t-btn-sm center">Rp 120.000</text>
+      <text x="18" y="126" class="t-h3">Bandung Music Night</text>
+      <text x="18" y="145" class="t-sm">16 Jan 2027, 19:00 WIB</text>
+      <text x="18" y="160" class="t-sm">Sabuga, Bandung</text>
+      <text x="18" y="180" class="t-xs">KUOTA TERISI</text>
+      <text x="326" y="180" class="t-xs end">900/1200</text>
+      <rect x="18" y="186" width="308" height="3" rx="1.5" class="track"/>
+      <rect x="18" y="186" width="231" height="3" rx="1.5" class="bar"/>
+      <line x1="0" y1="200" x2="344" y2="200" class="line"/>
+      <text x="18" y="214" class="t-sm">300 kursi tersisa</text>
+      <text x="326" y="214" class="t-sm amber end">Detail →</text>
+    </g>
+
+    <g transform="translate(792,524)">
+      <rect width="344" height="218" rx="6" class="surface"/>
+      <use href="#img" x="0" y="0" width="344" height="104"/>
+      <rect x="10" y="10" width="44" height="18" rx="3" class="chip"/>
+      <text x="32" y="22" class="t-xs center">DESAIN</text>
+      <rect x="10" y="78" width="70" height="20" rx="3" class="btn"/>
+      <text x="45" y="92" class="t-btn-sm center">Rp 200.000</text>
+      <text x="18" y="126" class="t-h3">UI/UX Design Workshop</text>
+      <text x="18" y="145" class="t-sm">23 Jan 2027, 09:00 WIB</text>
+      <text x="18" y="160" class="t-sm">Surabaya Convention Hall</text>
+      <text x="18" y="180" class="t-xs">KUOTA TERISI</text>
+      <text x="326" y="180" class="t-xs end">42/50</text>
+      <rect x="18" y="186" width="308" height="3" rx="1.5" class="track"/>
+      <rect x="18" y="186" width="259" height="3" rx="1.5" class="bar"/>
+      <line x1="0" y1="200" x2="344" y2="200" class="line"/>
+      <text x="18" y="214" class="t-sm">8 kursi tersisa</text>
+      <text x="326" y="214" class="t-sm amber end">Detail →</text>
+    </g>
+
+    <!-- pagination -->
+    <g transform="translate(520,764)">
+      <rect width="28" height="26" rx="4" class="btn-outline"/>
+      <text x="14" y="17" class="t-sm center">‹</text>
+      <rect x="34" width="28" height="26" rx="4" class="btn"/>
+      <text x="48" y="17" class="t-btn-sm center">1</text>
+      <rect x="68" width="28" height="26" rx="4" class="btn-outline"/>
+      <text x="82" y="17" class="t-sm center">2</text>
+      <rect x="102" width="28" height="26" rx="4" class="btn-outline"/>
+      <text x="116" y="17" class="t-sm center">3</text>
+      <rect x="136" width="28" height="26" rx="4" class="btn-outline"/>
+      <text x="150" y="17" class="t-sm center">›</text>
+    </g>
+  </g>
+
+  <!-- ==================== FRAME 03 · DETAIL EVENT ==================== -->
+  <g transform="translate(70,1040)">
+    <text x="0" y="-16" class="t-index">03</text>
+    <text x="34" y="-16" class="t-frame">Detail event</text>
+    <text x="1200" y="-16" class="t-role end">PUBLIK</text>
+    <rect width="1200" height="800" class="frame" rx="4"/>
+    <rect width="1200" height="2" fill="#f5b82e" opacity=".85"/>
+
+    <use href="#brand" x="24" y="16" width="170" height="32"/>
+    <text x="360" y="39" class="t-nav">Beranda</text>
+    <text x="444" y="39" class="t-nav">Jelajahi Event</text>
+    <text x="1010" y="39" class="t-nav">Masuk</text>
+    <rect x="1064" y="16" width="112" height="32" rx="5" class="btn"/>
+    <text x="1120" y="37" class="t-btn center">Daftar Sekarang</text>
+    <line x1="0" y1="64" x2="1200" y2="64" class="line"/>
+
+    <text x="64" y="88" class="t-sm">Beranda  /  Event  /  Teknologi  /  <tspan class="ink">Indonesia Tech Summit 2026</tspan></text>
+
+    <!-- poster -->
+    <g transform="translate(64,102)">
+      <rect width="740" height="300" rx="6" fill="#202027" stroke="#30303a"/>
+      <path d="M0 0 740 300M740 0 0 300" stroke="#383842" stroke-width="1"/>
+      <rect x="0" y="228" width="740" height="72" fill="#0f0f12" opacity=".55"/>
+      <rect x="16" y="256" width="70" height="20" rx="3" class="chip"/>
+      <text x="51" y="270" class="t-xs center">TEKNOLOGI</text>
+      <rect x="94" y="256" width="74" height="20" rx="3" class="chip-amber"/>
+      <text x="131" y="270" class="t-xs amber center">AKAN DATANG</text>
+      <rect x="176" y="256" width="72" height="20" rx="3" class="btn"/>
+      <text x="212" y="270" class="t-btn-sm center">★ UNGGULAN</text>
+    </g>
+
+    <text x="64" y="438" class="t-h1">Indonesia Tech Summit 2026</text>
+
+    <!-- info tiles -->
+    <rect x="64" y="456" width="240" height="62" rx="5" class="surface2"/>
+    <text x="80" y="476" class="t-xs">TANGGAL</text>
+    <text x="80" y="498" class="t-h3">12 Desember 2026</text>
+    <rect x="314" y="456" width="240" height="62" rx="5" class="surface2"/>
+    <text x="330" y="476" class="t-xs">WAKTU</text>
+    <text x="330" y="498" class="t-h3">09:00–17:00 WIB</text>
+    <rect x="564" y="456" width="240" height="62" rx="5" class="surface2"/>
+    <text x="580" y="476" class="t-xs">KOTA</text>
+    <text x="580" y="498" class="t-h3">Jakarta</text>
+
+    <text x="64" y="552" class="t-h2">Tentang event ini</text>
+    <text x="64" y="574" class="t-body">Indonesia Tech Summit mempertemukan founder, engineer, dan desainer untuk membahas</text>
+    <text x="64" y="591" class="t-body">tren AI, keamanan siber, dan produk digital. Nikmati sesi keynote, panel diskusi, serta</text>
+    <text x="64" y="608" class="t-body">networking yang menghubungkan Anda dengan komunitas teknologi nasional.</text>
+
+    <line x1="64" y1="628" x2="804" y2="628" class="line"/>
+    <text x="64" y="652" class="t-h2">Lokasi &amp; detail</text>
+    <text x="64" y="678" class="t-xs">LOKASI</text>
+    <text x="64" y="696" class="t-h3">Jakarta Convention Center</text>
+    <text x="64" y="712" class="t-sm">Jl. Gatot Subroto, Jakarta Pusat</text>
+    <text x="430" y="678" class="t-xs">KAPASITAS</text>
+    <text x="430" y="696" class="t-h3">400 peserta</text>
+    <text x="430" y="712" class="t-sm">128 kursi tersisa</text>
+
+    <!-- organizer strip -->
+    <rect x="64" y="728" width="740" height="60" rx="6" class="surface"/>
+    <use href="#avatar" x="78" y="740" width="36" height="36"/>
+    <text x="126" y="751" class="t-xs">DISELENGGARAKAN OLEH</text>
+    <text x="126" y="769" class="t-h3">Tech Indonesia Community</text>
+    <rect x="662" y="746" width="126" height="24" rx="4" class="chip-amber"/>
+    <text x="725" y="762" class="t-xs amber center">✓ TERVERIFIKASI</text>
+
+    <!-- aside -->
+    <rect x="828" y="102" width="308" height="286" rx="6" class="surface"/>
+    <text x="850" y="128" class="t-xs">HARGA TIKET</text>
+    <text x="850" y="160" class="t-h1">Rp 150.000</text>
+    <text x="850" y="176" class="t-sm">per peserta</text>
+    <text x="850" y="208" class="t-sm">Kuota terisi</text>
+    <text x="1114" y="208" class="t-sm amber end">68%</text>
+    <rect x="850" y="218" width="264" height="6" rx="3" class="track"/>
+    <rect x="850" y="218" width="180" height="6" rx="3" class="bar"/>
+    <text x="850" y="240" class="t-xs">272 terdaftar · 128 tersisa</text>
+    <line x1="828" y1="256" x2="1136" y2="256" class="line"/>
+    <rect x="850" y="272" width="264" height="40" rx="5" class="btn"/>
+    <text x="982" y="297" class="t-btn center">Masuk untuk Mendaftar</text>
+    <text x="982" y="332" class="t-sm center">Belum punya akun? <tspan class="amber">Daftar gratis</tspan></text>
+    <text x="982" y="366" class="t-xs center">Pendaftaran dikonfirmasi otomatis</text>
+
+    <rect x="828" y="404" width="308" height="118" rx="6" class="surface"/>
+    <text x="850" y="428" class="t-h3">Catatan pendaftaran</text>
+    <circle cx="853" cy="448" r="2" class="dot"/>
+    <text x="863" y="451" class="t-sm">Tiket digital langsung diterbitkan.</text>
+    <circle cx="853" cy="468" r="2" class="dot"/>
+    <text x="863" y="471" class="t-sm">Satu akun untuk satu event.</text>
+    <circle cx="853" cy="488" r="2" class="dot"/>
+    <text x="863" y="491" class="t-sm">Pembatalan sebelum event dimulai.</text>
+  </g>
+
+  <!-- ==================== FRAME 04 · LOGIN ==================== -->
+  <g transform="translate(1330,1040)">
+    <text x="0" y="-16" class="t-index">04</text>
+    <text x="34" y="-16" class="t-frame">Masuk / login</text>
+    <text x="1200" y="-16" class="t-role end">PUBLIK</text>
+    <rect width="1200" height="800" class="frame" rx="4"/>
+
+    <!-- left brand panel -->
+    <rect width="660" height="800" fill="#101013"/>
+    <rect width="660" height="800" fill="url(#grid)" opacity=".45"/>
+    <circle cx="150" cy="360" r="320" fill="url(#glow)"/>
+    <rect x="659" width="2" height="800" fill="#2b2b34"/>
+    <rect x="659" width="2" height="800" class="bar" opacity=".25"/>
+    <use href="#brand" x="48" y="44" width="170" height="32"/>
+    <text x="48" y="170" class="t-label amber">SISTEM INFORMASI EVENT</text>
+    <text x="48" y="222" class="t-h1" font-size="34">Kelola setiap acara.</text>
+    <text x="48" y="266" font-size="34" font-weight="800" class="amber">Hadirkan pengalaman</text>
+    <text x="48" y="310" font-size="34" font-weight="800" class="amber">yang berkesan.</text>
+    <text x="48" y="350" class="t-body">Dari konferensi teknologi hingga festival musik, EventSphere membantu</text>
+    <text x="48" y="368" class="t-body">penyelenggara mengelola pendaftaran dan peserta, serta memudahkan</text>
+    <text x="48" y="386" class="t-body">peserta menemukan event favoritnya.</text>
+
+    <rect x="48" y="426" width="564" height="86" rx="6" class="surface"/>
+    <line x1="236" y1="426" x2="236" y2="512" class="line"/>
+    <line x1="424" y1="426" x2="424" y2="512" class="line"/>
+    <text x="68" y="466" class="t-h1" font-size="22">3</text>
+    <text x="68" y="484" class="t-xs">PERAN PENGGUNA</text>
+    <text x="256" y="466" class="t-h1" font-size="22">100%</text>
+    <text x="256" y="484" class="t-xs">BERBASIS WEB</text>
+    <text x="444" y="466" class="t-h1" font-size="22">24/7</text>
+    <text x="444" y="484" class="t-xs">AKSES TIKET</text>
+    <text x="48" y="756" class="t-xs">© 2026 EventSphere. Semua hak dilindungi.</text>
+
+    <!-- right form -->
+    <rect x="660" width="540" height="800" fill="#17171b"/>
+    <text x="736" y="152" class="t-label amber">AKSES AKUN</text>
+    <text x="736" y="190" font-size="28" font-weight="800" class="ink">Selamat datang kembali</text>
+    <text x="736" y="212" class="t-sm">Masuk untuk mengelola event dan tiket Anda.</text>
+
+    <text x="736" y="254" class="t-sm ink">Alamat email</text>
+    <rect x="736" y="264" width="400" height="44" rx="5" class="field"/>
+    <text x="752" y="291" class="t-sm dim">nama@email.com</text>
+
+    <text x="736" y="330" class="t-sm ink">Kata sandi</text>
+    <text x="1136" y="330" class="t-sm amber end">Lihat</text>
+    <rect x="736" y="340" width="400" height="44" rx="5" class="field"/>
+    <text x="752" y="367" class="t-sm dim">••••••••</text>
+
+    <rect x="736" y="406" width="14" height="14" rx="3" class="field"/>
+    <text x="760" y="417" class="t-sm">Ingat saya di perangkat ini</text>
+
+    <rect x="736" y="442" width="400" height="46" rx="5" class="btn"/>
+    <text x="936" y="470" class="t-btn center">Masuk ke Dashboard</text>
+
+    <text x="936" y="522" class="t-sm center">Belum punya akun? <tspan class="amber">Daftar sekarang</tspan></text>
+
+    <line x1="736" y1="550" x2="872" y2="550" class="line"/>
+    <text x="936" y="554" class="t-xs center">ATAU</text>
+    <line x1="1000" y1="550" x2="1136" y2="550" class="line"/>
+
+    <rect x="736" y="572" width="400" height="40" rx="5" class="btn-outline"/>
+    <text x="936" y="597" class="t-sm center">Kembali ke beranda</text>
+
+    <text x="936" y="648" class="t-xs center">Dengan masuk, Anda menyetujui ketentuan penggunaan EventSphere.</text>
+  </g>
+
+  <!-- ==================== FRAME 05 · DASBOR PESERTA ==================== -->
+  <g transform="translate(70,1910)">
+    <text x="0" y="-16" class="t-index">05</text>
+    <text x="34" y="-16" class="t-frame">Dasbor peserta</text>
+    <text x="1200" y="-16" class="t-role end">PESERTA</text>
+    <rect width="1200" height="800" class="frame" rx="4"/>
+    <rect width="1200" height="2" fill="#f5b82e" opacity=".85"/>
+
+    <!-- sidebar -->
+    <rect width="220" height="800" fill="#101013"/>
+    <line x1="220" y1="0" x2="220" y2="800" class="line"/>
+    <use href="#brand" x="20" y="18" width="170" height="32"/>
+    <text x="24" y="104" class="t-label">MENU PESERTA</text>
+    <rect x="14" y="116" width="192" height="36" rx="5" class="chip-amber"/>
+    <rect x="14" y="124" width="2" height="20" class="bar"/>
+    <circle cx="32" cy="134" r="3" class="dot"/>
+    <text x="48" y="138" class="t-sm amber">Ringkasan</text>
+    <circle cx="32" cy="176" r="3" fill="#4b4b56"/>
+    <text x="48" y="180" class="t-sm">Tiket Saya</text>
+    <circle cx="32" cy="218" r="3" fill="#4b4b56"/>
+    <text x="48" y="222" class="t-sm">Jelajahi Event</text>
+    <rect x="16" y="624" width="188" height="92" rx="6" class="surface"/>
+    <text x="30" y="648" class="t-xs amber">EVENTSPHERE</text>
+    <text x="30" y="668" class="t-sm ink">Kelola event lebih rapi</text>
+    <text x="30" y="683" class="t-sm ink">dan profesional.</text>
+    <text x="30" y="702" class="t-xs amber">Buka dasbor →</text>
+    <line x1="16" y1="728" x2="204" y2="728" class="line"/>
+    <use href="#avatar" x="16" y="742" width="28" height="28"/>
+    <text x="54" y="756" class="t-sm ink">Raka Pratama</text>
+    <text x="54" y="770" class="t-xs">Peserta</text>
+
+    <!-- top bar -->
+    <text x="244" y="39" class="t-h3">Ringkasan Peserta</text>
+    <text x="1080" y="38" class="t-sm end">Lihat situs ↗</text>
+    <use href="#avatar" x="1140" y="17" width="30" height="30"/>
+    <line x1="220" y1="64" x2="1200" y2="64" class="line"/>
+
+    <!-- welcome -->
+    <rect x="244" y="88" width="932" height="102" rx="6" class="surface"/>
+    <rect x="244" y="88" width="2" height="102" class="bar"/>
+    <text x="268" y="114" class="t-label amber">HALO, RAKA PRATAMA</text>
+    <text x="268" y="140" font-size="22" font-weight="800" class="ink">Siap menghadiri event berikutnya?</text>
+    <text x="268" y="161" class="t-sm">Pantau tiket Anda dan temukan event baru yang sesuai minat.</text>
+    <rect x="1016" y="118" width="140" height="36" rx="5" class="btn"/>
+    <text x="1086" y="140" class="t-btn center">Jelajahi Event</text>
+
+    <!-- stats -->
+    <rect x="244" y="202" width="224" height="84" rx="6" class="surface"/>
+    <text x="260" y="224" class="t-xs">TOTAL PENDAFTARAN</text>
+    <text x="260" y="254" class="t-h1">6</text>
+    <text x="260" y="272" class="t-xs">Sepanjang waktu</text>
+    <rect x="480" y="202" width="224" height="84" rx="6" class="surface"/>
+    <text x="496" y="224" class="t-xs">EVENT MENDATANG</text>
+    <text x="496" y="254" class="t-h1">2</text>
+    <text x="496" y="272" class="t-xs">Tiket aktif</text>
+    <rect x="716" y="202" width="224" height="84" rx="6" class="surface"/>
+    <text x="732" y="224" class="t-xs">SUDAH HADIR</text>
+    <text x="732" y="254" class="t-h1">3</text>
+    <text x="732" y="272" class="t-xs">Check-in berhasil</text>
+    <rect x="952" y="202" width="224" height="84" rx="6" class="surface"/>
+    <text x="968" y="224" class="t-xs">DIBATALKAN</text>
+    <text x="968" y="254" class="t-h1">1</text>
+    <text x="968" y="272" class="t-xs">Tidak aktif</text>
+
+    <!-- upcoming tickets table -->
+    <g transform="translate(244,298)">
+      <rect width="608" height="302" rx="6" class="surface"/>
+      <text x="16" y="26" class="t-h3">Tiket mendatang</text>
+      <text x="592" y="26" class="t-xs amber end">Semua tiket →</text>
+      <line x1="0" y1="44" x2="608" y2="44" class="line"/>
+
+      <g transform="translate(0,44)">
+        <use href="#img" x="16" y="19" width="48" height="48"/>
+        <text x="76" y="29" class="t-h3">Indonesia Tech Summit 2026</text>
+        <text x="76" y="46" class="t-sm">12 Des 2026, 09:00 · Jakarta</text>
+        <rect x="76" y="55" width="78" height="17" rx="3" class="chip-amber"/>
+        <text x="115" y="67" class="t-xs amber center">TERKONFIRMASI</text>
+        <text x="162" y="68" class="t-mono">EVS-8F3K2M1A</text>
+        <text x="580" y="48" class="t-sm end">›</text>
+        <line x1="0" y1="86" x2="608" y2="86" class="line"/>
+      </g>
+
+      <g transform="translate(0,130)">
+        <use href="#img" x="16" y="19" width="48" height="48"/>
+        <text x="76" y="29" class="t-h3">Jakarta Creative Week</text>
+        <text x="76" y="46" class="t-sm">18 Des 2026, 13:00 · Jakarta</text>
+        <rect x="76" y="55" width="78" height="17" rx="3" class="chip-amber"/>
+        <text x="115" y="67" class="t-xs amber center">TERKONFIRMASI</text>
+        <text x="162" y="68" class="t-mono">EVS-2H7Q9L4B</text>
+        <text x="580" y="48" class="t-sm end">›</text>
+        <line x1="0" y1="86" x2="608" y2="86" class="line"/>
+      </g>
+
+      <g transform="translate(0,216)">
+        <use href="#img" x="16" y="19" width="48" height="48"/>
+        <text x="76" y="29" class="t-h3">Startup Founders Meetup</text>
+        <text x="76" y="46" class="t-sm">9 Jan 2027, 18:30 · Bandung</text>
+        <rect x="76" y="55" width="62" height="17" rx="3" class="chip"/>
+        <text x="107" y="67" class="t-xs center">MENUNGGU</text>
+        <text x="148" y="68" class="t-mono">EVS-5N1T6R8C</text>
+        <text x="580" y="48" class="t-sm end">›</text>
+      </g>
+    </g>
+
+    <!-- recommendations -->
+    <g transform="translate(868,298)">
+      <rect width="308" height="260" rx="6" class="surface"/>
+      <text x="16" y="26" class="t-h3">Rekomendasi</text>
+      <text x="292" y="26" class="t-xs amber end">Semua</text>
+      <use href="#img" x="16" y="44" width="40" height="40"/>
+      <text x="68" y="60" class="t-sm ink">Jakarta Creative Week</text>
+      <text x="68" y="76" class="t-xs">18 Des 2026</text>
+      <text x="68" y="90" class="t-xs amber">Gratis</text>
+      <use href="#img" x="16" y="108" width="40" height="40"/>
+      <text x="68" y="124" class="t-sm ink">Startup Founders Meetup</text>
+      <text x="68" y="140" class="t-xs">9 Jan 2027</text>
+      <text x="68" y="154" class="t-xs amber">Rp 50.000</text>
+      <use href="#img" x="16" y="172" width="40" height="40"/>
+      <text x="68" y="188" class="t-sm ink">Bandung Music Night</text>
+      <text x="68" y="204" class="t-xs">16 Jan 2027</text>
+      <text x="68" y="218" class="t-xs amber">Rp 120.000</text>
+    </g>
+
+    <rect x="868" y="570" width="308" height="110" rx="6" class="chip-amber"/>
+    <text x="888" y="596" class="t-h3">Butuh bantuan?</text>
+    <text x="888" y="616" class="t-sm">Hubungi penyelenggara jika ada pertanyaan</text>
+    <text x="888" y="632" class="t-sm">mengenai jadwal, lokasi, atau tiket Anda.</text>
+    <text x="888" y="656" class="t-xs amber">Pusat bantuan →</text>
+  </g>
+
+  <!-- ==================== FRAME 06 · TIKET DIGITAL ==================== -->
+  <g transform="translate(1330,1910)">
+    <text x="0" y="-16" class="t-index">06</text>
+    <text x="34" y="-16" class="t-frame">Tiket digital</text>
+    <text x="1200" y="-16" class="t-role end">PESERTA</text>
+    <rect width="1200" height="800" class="frame" rx="4"/>
+    <rect width="1200" height="2" fill="#f5b82e" opacity=".85"/>
+
+    <rect width="220" height="800" fill="#101013"/>
+    <line x1="220" y1="0" x2="220" y2="800" class="line"/>
+    <use href="#brand" x="20" y="18" width="170" height="32"/>
+    <text x="24" y="104" class="t-label">MENU PESERTA</text>
+    <circle cx="32" cy="134" r="3" fill="#4b4b56"/>
+    <text x="48" y="138" class="t-sm">Ringkasan</text>
+    <rect x="14" y="158" width="192" height="36" rx="5" class="chip-amber"/>
+    <rect x="14" y="166" width="2" height="20" class="bar"/>
+    <circle cx="32" cy="176" r="3" class="dot"/>
+    <text x="48" y="180" class="t-sm amber">Tiket Saya</text>
+    <circle cx="32" cy="218" r="3" fill="#4b4b56"/>
+    <text x="48" y="222" class="t-sm">Jelajahi Event</text>
+    <rect x="16" y="624" width="188" height="92" rx="6" class="surface"/>
+    <text x="30" y="648" class="t-xs amber">EVENTSPHERE</text>
+    <text x="30" y="668" class="t-sm ink">Kelola event lebih rapi</text>
+    <text x="30" y="683" class="t-sm ink">dan profesional.</text>
+    <text x="30" y="702" class="t-xs amber">Buka dasbor →</text>
+    <line x1="16" y1="728" x2="204" y2="728" class="line"/>
+    <use href="#avatar" x="16" y="742" width="28" height="28"/>
+    <text x="54" y="756" class="t-sm ink">Raka Pratama</text>
+    <text x="54" y="770" class="t-xs">Peserta</text>
+
+    <text x="244" y="39" class="t-h3">Detail Tiket</text>
+    <text x="1080" y="38" class="t-sm end">Lihat situs ↗</text>
+    <use href="#avatar" x="1140" y="17" width="30" height="30"/>
+    <line x1="220" y1="64" x2="1200" y2="64" class="line"/>
+
+    <text x="244" y="92" class="t-xs amber">← KEMBALI KE TIKET SAYA</text>
+    <text x="244" y="122" font-size="22" font-weight="800" class="ink">Tiket digital Anda</text>
+    <rect x="926" y="88" width="100" height="34" rx="5" class="btn-outline"/>
+    <text x="976" y="109" class="t-sm center">Cetak Tiket</text>
+    <rect x="1034" y="88" width="102" height="34" rx="5" class="btn"/>
+    <text x="1085" y="109" class="t-btn center">Lihat Event</text>
+
+    <!-- ticket -->
+    <rect x="244" y="148" width="608" height="400" rx="6" class="surface"/>
+    <rect x="244" y="148" width="608" height="2" class="bar"/>
+    <text x="268" y="178" class="t-xs amber">EVENTSPHERE E-TICKET</text>
+    <text x="268" y="204" font-size="18" font-weight="800" class="ink">Indonesia Tech Summit 2026</text>
+    <text x="268" y="222" class="t-sm">Teknologi</text>
+    <rect x="758" y="166" width="74" height="20" rx="3" class="chip-amber"/>
+    <text x="795" y="180" class="t-xs amber center">TERKONFIRMASI</text>
+    <line x1="244" y1="236" x2="852" y2="236" class="dash"/>
+
+    <text x="268" y="264" class="t-xs">PESERTA</text>
+    <text x="268" y="282" class="t-sm ink">Raka Pratama</text>
+    <text x="452" y="264" class="t-xs">KODE TIKET</text>
+    <text x="452" y="282" class="t-mono" font-size="12">EVS-8F3K2M1A</text>
+    <text x="268" y="308" class="t-xs">TANGGAL</text>
+    <text x="268" y="326" class="t-sm ink">12 Desember 2026</text>
+    <text x="452" y="308" class="t-xs">WAKTU</text>
+    <text x="452" y="326" class="t-sm ink">09:00 WIB</text>
+    <text x="268" y="352" class="t-xs">LOKASI</text>
+    <text x="268" y="370" class="t-sm ink">Jakarta Convention Center</text>
+    <text x="268" y="385" class="t-xs">Jl. Gatot Subroto, Jakarta Pusat</text>
+
+    <rect x="268" y="402" width="330" height="56" rx="5" class="surface2"/>
+    <text x="282" y="421" class="t-xs">STATUS PENDAFTARAN</text>
+    <rect x="282" y="428" width="74" height="18" rx="3" class="chip-amber"/>
+    <text x="319" y="441" class="t-xs amber center">TERKONFIRMASI</text>
+    <text x="368" y="441" class="t-xs">Tiket aktif · belum check-in</text>
+
+    <rect x="648" y="250" width="132" height="132" rx="4" fill="#f3f3ee"/>
+    <use href="#qr" x="652" y="254" width="124" height="124"/>
+    <text x="714" y="402" class="t-xs center">Tunjukkan kode ini kepada</text>
+    <text x="714" y="416" class="t-xs center">panitia saat check-in.</text>
+
+    <line x1="244" y1="490" x2="852" y2="490" class="dash"/>
+    <text x="268" y="518" class="t-xs">Diterbitkan 1 Desember 2026, 10:24</text>
+    <text x="828" y="518" class="t-mono end">EVS-8F3K2M1A</text>
+
+    <!-- aside -->
+    <rect x="868" y="148" width="308" height="96" rx="6" class="surface"/>
+    <text x="888" y="172" class="t-h3">Diselenggarakan oleh</text>
+    <use href="#avatar" x="888" y="186" width="36" height="36"/>
+    <text x="936" y="202" class="t-sm ink">Tech Indonesia Community</text>
+    <text x="936" y="218" class="t-xs">hello@techindonesia.id</text>
+
+    <rect x="868" y="256" width="308" height="90" rx="6" class="surface"/>
+    <text x="888" y="280" class="t-h3">Butuh bantuan?</text>
+    <text x="888" y="300" class="t-sm">Hubungi penyelenggara untuk pertanyaan</text>
+    <text x="888" y="316" class="t-sm">jadwal, lokasi, atau tiket Anda.</text>
+
+    <rect x="868" y="358" width="308" height="38" rx="5" fill="none" stroke="#6b3a3a"/>
+    <text x="1022" y="382" class="t-sm center" fill="#e39a9a">Batalkan Pendaftaran</text>
+    <text x="1022" y="420" class="t-xs center">Pembatalan hanya tersedia</text>
+    <text x="1022" y="434" class="t-xs center">sebelum event dimulai.</text>
+
+    <rect x="868" y="456" width="308" height="92" rx="6" class="chip-amber"/>
+    <text x="888" y="480" class="t-h3">Jelajahi event lain</text>
+    <text x="888" y="500" class="t-sm">Temukan acara baru sesuai minat Anda.</text>
+    <text x="888" y="526" class="t-xs amber">Lihat katalog →</text>
+  </g>
+
+  <!-- ==================== FRAME 07 · DASBOR PENYELENGGARA ==================== -->
+  <g transform="translate(70,2780)">
+    <text x="0" y="-16" class="t-index">07</text>
+    <text x="34" y="-16" class="t-frame">Dasbor penyelenggara</text>
+    <text x="1200" y="-16" class="t-role end">PENYELENGGARA</text>
+    <rect width="1200" height="800" class="frame" rx="4"/>
+    <rect width="1200" height="2" fill="#f5b82e" opacity=".85"/>
+
+    <rect width="220" height="800" fill="#101013"/>
+    <line x1="220" y1="0" x2="220" y2="800" class="line"/>
+    <use href="#brand" x="20" y="18" width="170" height="32"/>
+    <text x="24" y="104" class="t-label">MENU PENYELENGGARA</text>
+    <rect x="14" y="116" width="192" height="36" rx="5" class="chip-amber"/>
+    <rect x="14" y="124" width="2" height="20" class="bar"/>
+    <circle cx="32" cy="134" r="3" class="dot"/>
+    <text x="48" y="138" class="t-sm amber">Ringkasan</text>
+    <circle cx="32" cy="176" r="3" fill="#4b4b56"/>
+    <text x="48" y="180" class="t-sm">Event Saya</text>
+    <circle cx="32" cy="218" r="3" fill="#4b4b56"/>
+    <text x="48" y="222" class="t-sm">Buat Event</text>
+    <circle cx="32" cy="260" r="3" fill="#4b4b56"/>
+    <text x="48" y="264" class="t-sm">Jelajahi Event</text>
+    <rect x="16" y="624" width="188" height="92" rx="6" class="surface"/>
+    <text x="30" y="648" class="t-xs amber">EVENTSPHERE</text>
+    <text x="30" y="668" class="t-sm ink">Kelola event lebih rapi</text>
+    <text x="30" y="683" class="t-sm ink">dan profesional.</text>
+    <text x="30" y="702" class="t-xs amber">Buka dasbor →</text>
+    <line x1="16" y1="728" x2="204" y2="728" class="line"/>
+    <use href="#avatar" x="16" y="742" width="28" height="28"/>
+    <text x="54" y="756" class="t-sm ink">Dewi Lestari</text>
+    <text x="54" y="770" class="t-xs">Penyelenggara</text>
+
+    <text x="244" y="39" class="t-h3">Ringkasan Penyelenggara</text>
+    <text x="1080" y="38" class="t-sm end">Lihat situs ↗</text>
+    <use href="#avatar" x="1140" y="17" width="30" height="30"/>
+    <line x1="220" y1="64" x2="1200" y2="64" class="line"/>
+
+    <rect x="244" y="88" width="932" height="102" rx="6" class="surface"/>
+    <rect x="244" y="88" width="2" height="102" class="bar"/>
+    <text x="268" y="114" class="t-label amber">NUSANTARA EVENTS</text>
+    <text x="268" y="140" font-size="22" font-weight="800" class="ink">Kelola event Anda dengan mudah</text>
+    <text x="268" y="161" class="t-sm">Pantau pendaftaran, konfirmasi peserta, dan siapkan event berikutnya.</text>
+    <rect x="1010" y="118" width="146" height="36" rx="5" class="btn"/>
+    <text x="1083" y="140" class="t-btn center">+ Buat Event Baru</text>
+
+    <rect x="244" y="202" width="224" height="84" rx="6" class="surface"/>
+    <text x="260" y="224" class="t-xs">TOTAL EVENT</text>
+    <text x="260" y="254" class="t-h1">8</text>
+    <text x="260" y="272" class="t-xs">Semua status</text>
+    <rect x="480" y="202" width="224" height="84" rx="6" class="surface"/>
+    <text x="496" y="224" class="t-xs">EVENT TERBIT</text>
+    <text x="496" y="254" class="t-h1">5</text>
+    <text x="496" y="272" class="t-xs">Tampil di publik</text>
+    <rect x="716" y="202" width="224" height="84" rx="6" class="surface"/>
+    <text x="732" y="224" class="t-xs">TOTAL PENDAFTAR</text>
+    <text x="732" y="254" class="t-h1">342</text>
+    <text x="732" y="272" class="t-xs">Seluruh event Anda</text>
+    <rect x="952" y="202" width="224" height="84" rx="6" class="surface"/>
+    <text x="968" y="224" class="t-xs">ESTIMASI PENDAPATAN</text>
+    <text x="968" y="254" font-size="19" font-weight="800" class="ink">Rp 12.450.000</text>
+    <text x="968" y="272" class="t-xs">Tiket terkonfirmasi</text>
+
+    <!-- events table -->
+    <g transform="translate(244,298)">
+      <rect width="560" height="290" rx="6" class="surface"/>
+      <text x="16" y="26" class="t-h3">Event terdekat</text>
+      <text x="544" y="26" class="t-xs amber end">Semua event →</text>
+      <line x1="0" y1="44" x2="560" y2="44" class="line"/>
+
+      <g transform="translate(0,44)">
+        <use href="#img" x="16" y="19" width="44" height="44"/>
+        <text x="72" y="30" class="t-h3">Indonesia Tech Summit 2026</text>
+        <text x="72" y="47" class="t-sm">12 Des 2026, 09:00 · Jakarta</text>
+        <rect x="72" y="56" width="58" height="17" rx="3" class="chip-amber"/>
+        <text x="101" y="68" class="t-xs amber center">TERBIT</text>
+        <text x="140" y="68" class="t-xs">272/400 peserta</text>
+        <rect x="466" y="33" width="76" height="26" rx="4" class="btn-outline"/>
+        <text x="504" y="50" class="t-sm center">Peserta</text>
+        <line x1="0" y1="82" x2="560" y2="82" class="line"/>
+      </g>
+
+      <g transform="translate(0,126)">
+        <use href="#img" x="16" y="19" width="44" height="44"/>
+        <text x="72" y="30" class="t-h3">Jakarta Creative Week</text>
+        <text x="72" y="47" class="t-sm">18 Des 2026, 13:00 · Jakarta</text>
+        <rect x="72" y="56" width="58" height="17" rx="3" class="chip-amber"/>
+        <text x="101" y="68" class="t-xs amber center">TERBIT</text>
+        <text x="140" y="68" class="t-xs">480/600 peserta</text>
+        <rect x="466" y="33" width="76" height="26" rx="4" class="btn-outline"/>
+        <text x="504" y="50" class="t-sm center">Peserta</text>
+        <line x1="0" y1="82" x2="560" y2="82" class="line"/>
+      </g>
+
+      <g transform="translate(0,208)">
+        <use href="#img" x="16" y="19" width="44" height="44"/>
+        <text x="72" y="30" class="t-h3">Startup Founders Meetup</text>
+        <text x="72" y="47" class="t-sm">9 Jan 2027, 18:30 · Bandung</text>
+        <rect x="72" y="56" width="52" height="17" rx="3" class="chip"/>
+        <text x="98" y="68" class="t-xs center">DRAF</text>
+        <text x="134" y="68" class="t-xs">88/100 peserta</text>
+        <rect x="466" y="33" width="76" height="26" rx="4" class="btn-outline"/>
+        <text x="504" y="50" class="t-sm center">Peserta</text>
+      </g>
+    </g>
+
+    <!-- latest registrations -->
+    <g transform="translate(820,298)">
+      <rect width="356" height="292" rx="6" class="surface"/>
+      <text x="16" y="26" class="t-h3">Pendaftaran terbaru</text>
+      <line x1="0" y1="44" x2="356" y2="44" class="line"/>
+      <use href="#avatar" x="16" y="57" width="28" height="28"/>
+      <text x="54" y="68" class="t-sm ink">Raka Pratama</text>
+      <text x="54" y="83" class="t-xs">Indonesia Tech Summit 2026</text>
+      <text x="340" y="74" class="t-xs amber end">TERKONFIRMASI</text>
+      <line x1="0" y1="106" x2="356" y2="106" class="line"/>
+      <use href="#avatar" x="16" y="119" width="28" height="28"/>
+      <text x="54" y="130" class="t-sm ink">Sinta Maharani</text>
+      <text x="54" y="145" class="t-xs">Jakarta Creative Week</text>
+      <text x="340" y="136" class="t-xs amber end">TERKONFIRMASI</text>
+      <line x1="0" y1="168" x2="356" y2="168" class="line"/>
+      <use href="#avatar" x="16" y="181" width="28" height="28"/>
+      <text x="54" y="192" class="t-sm ink">Bagas Saputra</text>
+      <text x="54" y="207" class="t-xs">Indonesia Tech Summit 2026</text>
+      <text x="340" y="198" class="t-xs end">MENUNGGU</text>
+      <line x1="0" y1="230" x2="356" y2="230" class="line"/>
+      <use href="#avatar" x="16" y="243" width="28" height="28"/>
+      <text x="54" y="254" class="t-sm ink">Nadia Putri</text>
+      <text x="54" y="269" class="t-xs">Jakarta Creative Week</text>
+      <text x="340" y="260" class="t-xs end">HADIR</text>
+    </g>
+  </g>
+
+  <!-- ==================== FRAME 08 · DASBOR ADMIN ==================== -->
+  <g transform="translate(1330,2780)">
+    <text x="0" y="-16" class="t-index">08</text>
+    <text x="34" y="-16" class="t-frame">Dasbor admin</text>
+    <text x="1200" y="-16" class="t-role end">ADMIN</text>
+    <rect width="1200" height="800" class="frame" rx="4"/>
+    <rect width="1200" height="2" fill="#f5b82e" opacity=".85"/>
+
+    <rect width="220" height="800" fill="#101013"/>
+    <line x1="220" y1="0" x2="220" y2="800" class="line"/>
+    <use href="#brand" x="20" y="18" width="170" height="32"/>
+    <text x="24" y="104" class="t-label">MENU ADMIN</text>
+    <rect x="14" y="116" width="192" height="36" rx="5" class="chip-amber"/>
+    <rect x="14" y="124" width="2" height="20" class="bar"/>
+    <circle cx="32" cy="134" r="3" class="dot"/>
+    <text x="48" y="138" class="t-sm amber">Ringkasan</text>
+    <circle cx="32" cy="176" r="3" fill="#4b4b56"/>
+    <text x="48" y="180" class="t-sm">Kelola Event</text>
+    <circle cx="32" cy="218" r="3" fill="#4b4b56"/>
+    <text x="48" y="222" class="t-sm">Kategori</text>
+    <circle cx="32" cy="260" r="3" fill="#4b4b56"/>
+    <text x="48" y="264" class="t-sm">Pengguna</text>
+    <circle cx="32" cy="302" r="3" fill="#4b4b56"/>
+    <text x="48" y="306" class="t-sm">Pendaftaran</text>
+    <rect x="16" y="624" width="188" height="92" rx="6" class="surface"/>
+    <text x="30" y="648" class="t-xs amber">EVENTSPHERE</text>
+    <text x="30" y="668" class="t-sm ink">Panel administrator</text>
+    <text x="30" y="683" class="t-sm ink">seluruh platform.</text>
+    <text x="30" y="702" class="t-xs amber">Lihat situs →</text>
+    <line x1="16" y1="728" x2="204" y2="728" class="line"/>
+    <use href="#avatar" x="16" y="742" width="28" height="28"/>
+    <text x="54" y="756" class="t-sm ink">Admin EventSphere</text>
+    <text x="54" y="770" class="t-xs">Administrator</text>
+
+    <text x="244" y="39" class="t-h3">Ringkasan Sistem</text>
+    <text x="1080" y="38" class="t-sm end">Lihat situs ↗</text>
+    <use href="#avatar" x="1140" y="17" width="30" height="30"/>
+    <line x1="220" y1="64" x2="1200" y2="64" class="line"/>
+
+    <rect x="244" y="88" width="932" height="102" rx="6" class="surface"/>
+    <rect x="244" y="88" width="2" height="102" class="bar"/>
+    <text x="268" y="114" class="t-label amber">PANEL ADMINISTRATOR</text>
+    <text x="268" y="140" font-size="22" font-weight="800" class="ink">Selamat datang, Administrator</text>
+    <text x="268" y="161" class="t-sm">Pantau seluruh aktivitas platform: pengguna, event, kategori, dan pendaftaran.</text>
+    <rect x="900" y="118" width="128" height="36" rx="5" class="btn-outline"/>
+    <text x="964" y="140" class="t-sm center">Kelola Pengguna</text>
+    <rect x="1038" y="118" width="118" height="36" rx="5" class="btn"/>
+    <text x="1097" y="140" class="t-btn center">Kelola Event</text>
+
+    <rect x="244" y="202" width="224" height="84" rx="6" class="surface"/>
+    <text x="260" y="224" class="t-xs">TOTAL PENGGUNA</text>
+    <text x="260" y="254" class="t-h1">126</text>
+    <text x="260" y="272" class="t-xs">4 penyelenggara · 25 peserta</text>
+    <rect x="480" y="202" width="224" height="84" rx="6" class="surface"/>
+    <text x="496" y="224" class="t-xs">TOTAL EVENT</text>
+    <text x="496" y="254" class="t-h1">14</text>
+    <text x="496" y="272" class="t-xs">5 event terbit</text>
+    <rect x="716" y="202" width="224" height="84" rx="6" class="surface"/>
+    <text x="732" y="224" class="t-xs">TOTAL PENDAFTARAN</text>
+    <text x="732" y="254" class="t-h1">126</text>
+    <text x="732" y="272" class="t-xs">Seluruh platform</text>
+    <rect x="952" y="202" width="224" height="84" rx="6" class="surface"/>
+    <text x="968" y="224" class="t-xs">ESTIMASI PENDAPATAN</text>
+    <text x="968" y="254" font-size="19" font-weight="800" class="ink">Rp 18.750.000</text>
+    <text x="968" y="272" class="t-xs">Tiket terkonfirmasi</text>
+
+    <!-- recent events -->
+    <g transform="translate(244,298)">
+      <rect width="560" height="328" rx="6" class="surface"/>
+      <text x="16" y="24" class="t-h3">Event terbaru</text>
+      <text x="544" y="24" class="t-xs amber end">Lihat semua →</text>
+      <line x1="0" y1="38" x2="560" y2="38" class="line"/>
+      <text x="16" y="58" class="t-xs">EVENT</text>
+      <text x="356" y="58" class="t-xs">STATUS</text>
+      <text x="544" y="58" class="t-xs end">PESERTA</text>
+      <line x1="0" y1="66" x2="560" y2="66" class="line"/>
+
+      <use href="#img" x="16" y="81" width="34" height="34"/>
+      <text x="60" y="96" class="t-sm ink">Indonesia Tech Summit 2026</text>
+      <text x="60" y="111" class="t-xs">Tech Indonesia Community</text>
+      <rect x="356" y="89" width="58" height="17" rx="3" class="chip-amber"/>
+      <text x="385" y="101" class="t-xs amber center">TERBIT</text>
+      <text x="544" y="101" class="t-sm end">272/400</text>
+      <line x1="0" y1="130" x2="560" y2="130" class="line"/>
+
+      <use href="#img" x="16" y="145" width="34" height="34"/>
+      <text x="60" y="160" class="t-sm ink">Jakarta Creative Week</text>
+      <text x="60" y="175" class="t-xs">Kreatif Jakarta</text>
+      <rect x="356" y="153" width="58" height="17" rx="3" class="chip-amber"/>
+      <text x="385" y="165" class="t-xs amber center">TERBIT</text>
+      <text x="544" y="165" class="t-sm end">480/600</text>
+      <line x1="0" y1="194" x2="560" y2="194" class="line"/>
+
+      <use href="#img" x="16" y="209" width="34" height="34"/>
+      <text x="60" y="224" class="t-sm ink">Nusantara Cultural Festival</text>
+      <text x="60" y="239" class="t-xs">Yogyakarta Arts</text>
+      <rect x="356" y="217" width="52" height="17" rx="3" class="chip"/>
+      <text x="382" y="229" class="t-xs center">DRAF</text>
+      <text x="544" y="229" class="t-sm end">640/800</text>
+      <line x1="0" y1="258" x2="560" y2="258" class="line"/>
+
+      <use href="#img" x="16" y="273" width="34" height="34"/>
+      <text x="60" y="288" class="t-sm ink">Bandung Music Night</text>
+      <text x="60" y="303" class="t-xs">Sabuga Live</text>
+      <rect x="356" y="281" width="58" height="17" rx="3" class="chip"/>
+      <text x="385" y="293" class="t-xs center">SELESAI</text>
+      <text x="544" y="293" class="t-sm end">900/1200</text>
+    </g>
+
+    <!-- recent registrations -->
+    <g transform="translate(820,298)">
+      <rect width="356" height="202" rx="6" class="surface"/>
+      <text x="16" y="24" class="t-h3">Pendaftaran terbaru</text>
+      <line x1="0" y1="38" x2="356" y2="38" class="line"/>
+      <use href="#avatar" x="16" y="49" width="26" height="26"/>
+      <text x="52" y="60" class="t-sm ink">Raka Pratama</text>
+      <text x="52" y="75" class="t-xs">Indonesia Tech Summit 2026</text>
+      <text x="340" y="66" class="t-xs amber end">TERKONFIRMASI</text>
+      <line x1="0" y1="92" x2="356" y2="92" class="line"/>
+      <use href="#avatar" x="16" y="103" width="26" height="26"/>
+      <text x="52" y="114" class="t-sm ink">Sinta Maharani</text>
+      <text x="52" y="129" class="t-xs">Jakarta Creative Week</text>
+      <text x="340" y="120" class="t-xs amber end">TERKONFIRMASI</text>
+      <line x1="0" y1="146" x2="356" y2="146" class="line"/>
+      <use href="#avatar" x="16" y="157" width="26" height="26"/>
+      <text x="52" y="168" class="t-sm ink">Bagas Saputra</text>
+      <text x="52" y="183" class="t-xs">Indonesia Tech Summit 2026</text>
+      <text x="340" y="174" class="t-xs end">MENUNGGU</text>
+    </g>
+
+    <!-- top categories -->
+    <g transform="translate(820,514)">
+      <rect width="356" height="148" rx="6" class="surface"/>
+      <text x="16" y="24" class="t-h3">Kategori teratas</text>
+      <text x="340" y="24" class="t-xs amber end">Kelola</text>
+      <line x1="0" y1="38" x2="356" y2="38" class="line"/>
+      <text x="16" y="60" class="t-sm ink">Teknologi</text>
+      <text x="150" y="60" class="t-xs">6 event</text>
+      <rect x="210" y="52" width="130" height="4" rx="2" class="track"/>
+      <rect x="210" y="52" width="104" height="4" rx="2" class="bar"/>
+      <text x="16" y="90" class="t-sm ink">Kreatif</text>
+      <text x="150" y="90" class="t-xs">4 event</text>
+      <rect x="210" y="82" width="130" height="4" rx="2" class="track"/>
+      <rect x="210" y="82" width="78" height="4" rx="2" class="bar"/>
+      <text x="16" y="120" class="t-sm ink">Budaya</text>
+      <text x="150" y="120" class="t-xs">3 event</text>
+      <rect x="210" y="112" width="130" height="4" rx="2" class="track"/>
+      <rect x="210" y="112" width="58" height="4" rx="2" class="bar"/>
+    </g>
+  </g>
+
+  <!-- BOARD FOOTER -->
+  <line x1="70" y1="3626" x2="2530" y2="3626" class="line"/>
+  <text x="70" y="3654" class="t-role">KONVENSI</text>
+  <rect x="160" y="3640" width="16" height="16" fill="#202027" stroke="#383842"/>
+  <path d="M160 3640 176 3656M176 3640 160 3656" stroke="#383842"/>
+  <text x="186" y="3652" class="t-xs">Area poster / gambar</text>
+  <line x1="330" y1="3648" x2="362" y2="3648" class="dash"/>
+  <text x="374" y="3652" class="t-xs">Pembatas / area gulir</text>
+  <rect x="510" y="3640" width="16" height="16" rx="3" class="btn"/>
+  <text x="536" y="3652" class="t-xs">Aksi utama</text>
+  <rect x="634" y="3640" width="16" height="16" rx="3" class="chip"/>
+  <text x="660" y="3652" class="t-xs">Status / label</text>
+  <text x="2530" y="3652" class="t-xs end">Sumber: routes/web.php · resources/views · layouts/app, auth, dashboard</text>
+</svg>
