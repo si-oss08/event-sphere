@@ -1,0 +1,59 @@
+<mxfile host="app.diagrams.net" agent="EventSphere" version="24.7.8" type="device">
+  <diagram id="dfd-konteks" name="DFD Konteks">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="sys" value="0&lt;br&gt;&lt;b&gt;Sistem EventSphere&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="460" y="320" width="250" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" value="Pengunjung /&lt;br&gt;Peserta" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="120" width="190" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e2" value="Penyelenggara" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="560" width="190" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e3" value="Administrator" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="340" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="f1a" value="Data akun, kredensial login,&lt;br&gt;kriteria pencarian, pendaftaran event" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.2;labelBackgroundColor=#FFFFFF;fontSize=10;exitX=1;exitY=0.25;entryX=0;entryY=0.2;" edge="1" parent="1" source="e1" target="sys">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" x="-10" y="-28" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f1b" value="Info dan detail event, tiket digital,&lt;br&gt;status pendaftaran" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.2;labelBackgroundColor=#FFFFFF;fontSize=10;exitX=0;exitY=0.45;entryX=1;entryY=0.75;" edge="1" parent="1" source="sys" target="e1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" x="-20" y="18" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="f2a" value="Kredensial login, data event,&lt;br&gt;poster, status pendaftaran" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.2;labelBackgroundColor=#FFFFFF;fontSize=10;exitX=1;exitY=0.75;entryX=0;entryY=0.8;" edge="1" parent="1" source="e2" target="sys">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" x="-10" y="28" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f2b" value="Statistik event, daftar pendaftar,&lt;br&gt;laporan pendapatan" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.2;labelBackgroundColor=#FFFFFF;fontSize=10;exitX=0;exitY=0.55;entryX=1;entryY=0.25;" edge="1" parent="1" source="sys" target="e2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" x="-20" y="-18" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="f3a" value="Kredensial login, data kategori,&lt;br&gt;peran pengguna, status event" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.2;labelBackgroundColor=#FFFFFF;fontSize=10;exitX=0;exitY=0.25;entryX=1;entryY=0.2;" edge="1" parent="1" source="e3" target="sys">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" x="10" y="-28" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f3b" value="Statistik global, daftar pengguna,&lt;br&gt;event, pendaftaran, laporan" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=1.2;labelBackgroundColor=#FFFFFF;fontSize=10;exitX=1;exitY=0.8;entryX=0;entryY=0.75;" edge="1" parent="1" source="sys" target="e3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" x="10" y="28" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
