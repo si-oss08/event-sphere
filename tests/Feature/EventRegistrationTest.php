@@ -138,6 +138,55 @@ class EventRegistrationTest extends TestCase
             ->assertSee($registration->ticket_code);
     }
 
+    public function test_participant_cannot_cancel_registration_after_event_started(): void
+    {
+        $participant = User::factory()->participant()->create();
+        $event = Event::factory()->create([
+            'starts_at' => now()->subHour(),
+            'ends_at' => now()->addHour(),
+        ]);
+        $registration = Registration::factory()->for($event)->for($participant)->create();
+
+        $this->actingAs($participant)
+            ->from(route('registrations.index'))
+            ->patch(route('registrations.cancel', $registration))
+            ->assertRedirect(route('registrations.index'))
+            ->assertSessionHas('error');
+
+        $this->assertSame(RegistrationStatus::Confirmed, $registration->fresh()->status);
+    }
+
+    public function test_participant_cannot_cancel_an_already_cancelled_registration(): void
+    {
+        $participant = User::factory()->participant()->create();
+        $event = $this->futureEvent();
+        $registration = Registration::factory()
+            ->for($event)
+            ->for($participant)
+            ->create(['status' => RegistrationStatus::Cancelled]);
+
+        $this->actingAs($participant)
+            ->from(route('registrations.index'))
+            ->patch(route('registrations.cancel', $registration))
+            ->assertRedirect(route('registrations.index'))
+            ->assertSessionHas('error');
+
+        $this->assertSame(RegistrationStatus::Cancelled, $registration->fresh()->status);
+    }
+
+    public function test_ticket_code_uses_expected_format(): void
+    {
+        $participant = User::factory()->participant()->create();
+        $event = $this->futureEvent();
+
+        $this->actingAs($participant)
+            ->post(route('events.register', $event->slug));
+
+        $registration = Registration::query()->where('user_id', $participant->id)->firstOrFail();
+
+        $this->assertMatchesRegularExpression('/^EVS-[A-Z0-9]{8}$/', $registration->ticket_code);
+    }
+
     /**
      * @param  array<string, mixed>  $attributes
      */

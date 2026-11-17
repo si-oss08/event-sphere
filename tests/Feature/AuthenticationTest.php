@@ -70,6 +70,24 @@ class AuthenticationTest extends TestCase
         $this->assertAuthenticated();
     }
 
+    public function test_registration_rejects_duplicate_email(): void
+    {
+        User::factory()->participant()->create(['email' => 'sudah@example.com']);
+
+        $response = $this->from(route('register'))->post(route('register.store'), [
+            'name' => 'Peserta Duplikat',
+            'email' => 'sudah@example.com',
+            'role' => UserRole::Participant->value,
+            'password' => 'password',
+            'password_confirmation' => 'password',
+        ]);
+
+        $response->assertRedirect(route('register'))
+            ->assertSessionHasErrors('email');
+
+        $this->assertSame(1, User::query()->where('email', 'sudah@example.com')->count());
+    }
+
     public function test_organizer_registration_requires_organization_name(): void
     {
         $response = $this->from(route('register'))->post(route('register.store'), [
