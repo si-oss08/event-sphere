@@ -60,6 +60,15 @@ class ProfileTest extends TestCase
         $this->assertNotSame('sudah-dipakai@example.com', $user->fresh()->email);
     }
 
+    public function test_avatar_url_uses_the_configured_public_disk_url(): void
+    {
+        config(['filesystems.disks.public.url' => 'https://cdn.eventsphere.test/storage']);
+
+        $user = User::factory()->create(['avatar_path' => 'avatars/budi.jpg']);
+
+        $this->assertSame('https://cdn.eventsphere.test/storage/avatars/budi.jpg', $user->avatarUrl());
+    }
+
     public function test_user_can_upload_an_avatar(): void
     {
         Storage::fake('public');

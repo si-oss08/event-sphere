@@ -8,7 +8,9 @@ use App\Models\Event;
 use App\Models\Registration;
 use App\Models\User;
 use App\RegistrationStatus;
+use App\UserRole;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
@@ -18,30 +20,102 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $admin = User::factory()->admin()->create([
+        if (User::query()->exists()) {
+            $this->command?->warn('Database sudah berisi data — seeding dilewati.');
+
+            return;
+        }
+
+        $password = Hash::make('password');
+
+        User::create([
             'name' => 'Admin EventSphere',
             'email' => 'admin@eventsphere.test',
+            'password' => $password,
+            'role' => UserRole::Admin,
             'phone' => '081200000001',
         ]);
 
-        $organizer = User::factory()->organizer()->create([
+        $organizer = User::create([
             'name' => 'Rani Puspita',
             'email' => 'organizer@eventsphere.test',
+            'password' => $password,
+            'role' => UserRole::Organizer,
             'phone' => '081200000002',
             'organization_name' => 'Nusantara Creative',
             'bio' => 'Penyelenggara konferensi teknologi dan festival kreatif sejak 2018.',
         ]);
 
-        $participant = User::factory()->participant()->create([
+        $otherOrganizers = collect([
+            [
+                'name' => 'Dimas Prakoso',
+                'email' => 'dimas@eventsphere.test',
+                'phone' => '081200000004',
+                'organization_name' => 'Kreatif Nusantara',
+                'bio' => 'Menyelenggarakan festival musik dan acara komunitas di Bandung.',
+            ],
+            [
+                'name' => 'Sinta Maharani',
+                'email' => 'sinta@eventsphere.test',
+                'phone' => '081200000005',
+                'organization_name' => 'Ruang Acara',
+                'bio' => 'Fokus pada seminar bisnis, kesehatan, dan pengembangan karier.',
+            ],
+            [
+                'name' => 'Bagas Nugroho',
+                'email' => 'bagas@eventsphere.test',
+                'phone' => '081200000006',
+                'organization_name' => 'Ide Kolaborasi',
+                'bio' => 'Praktisi seni budaya yang aktif menggelar lokakarya kreatif.',
+            ],
+        ])->map(fn (array $data): User => User::create([
+            ...$data,
+            'password' => $password,
+            'role' => UserRole::Organizer,
+        ]));
+
+        $participants = collect([
+            'Ayu Lestari',
+            'Fajar Ramadhan',
+            'Dewi Anggraini',
+            'Rizky Pratama',
+            'Putri Wulandari',
+            'Andi Saputra',
+            'Nabila Zahra',
+            'Yuda Firmansyah',
+            'Sari Kusuma',
+            'Bagus Setiawan',
+            'Intan Permata',
+            'Reza Maulana',
+            'Wulan Sari',
+            'Dodi Kurniawan',
+            'Mia Rahmawati',
+            'Arif Hidayat',
+            'Laila Fitriani',
+            'Hendra Gunawan',
+            'Citra Amelia',
+            'Taufik Hidayat',
+            'Mega Puspita',
+            'Ilham Akbar',
+            'Rina Marlina',
+            'Galih Purnama',
+        ])->map(fn (string $name, int $index): User => User::create([
+            'name' => $name,
+            'email' => sprintf('peserta%02d@eventsphere.test', $index + 1),
+            'password' => $password,
+            'role' => UserRole::Participant,
+            'phone' => sprintf('08130000%04d', $index + 1),
+        ]));
+
+        $participant = User::create([
             'name' => 'Budi Santoso',
             'email' => 'participant@eventsphere.test',
+            'password' => $password,
+            'role' => UserRole::Participant,
             'phone' => '081200000003',
             'bio' => 'Pecinta event teknologi, musik, dan pengembangan diri.',
         ]);
 
-        $otherOrganizers = User::factory()->count(3)->organizer()->create();
-
-        $participants = User::factory()->count(24)->participant()->create();
         $participants->push($participant);
 
         $categories = collect([
@@ -306,7 +380,7 @@ class DatabaseSeeder extends Seeder
         $createdEvents = collect($events)->mapWithKeys(function (array $data) use ($categories): array {
             $startsAt = now()->startOfDay()->addDays($data['days'])->setTime($data['hour'], 0);
 
-            $event = Event::factory()->create([
+            $event = Event::create([
                 'organizer_id' => $data['organizer']->id,
                 'category_id' => $categories[$data['category']]->id,
                 'title' => $data['title'],
@@ -336,11 +410,12 @@ class DatabaseSeeder extends Seeder
 
             foreach ($attendees as $attendee) {
                 $isPast = $event->status === EventStatus::Completed;
+                $roll = random_int(1, 100);
                 $status = match (true) {
-                    $isPast && fake()->boolean(80) => RegistrationStatus::Attended,
+                    $isPast && $roll <= 80 => RegistrationStatus::Attended,
                     $isPast => RegistrationStatus::Cancelled,
-                    fake()->boolean(15) => RegistrationStatus::Pending,
-                    fake()->boolean(10) => RegistrationStatus::Cancelled,
+                    $roll <= 15 => RegistrationStatus::Pending,
+                    $roll <= 25 => RegistrationStatus::Cancelled,
                     default => RegistrationStatus::Confirmed,
                 };
 
@@ -372,7 +447,7 @@ class DatabaseSeeder extends Seeder
             );
         }
 
-        $this->command->info('EventSphere seeded: '.User::count().' pengguna, '.Event::count().' event, '.Registration::count().' pendaftaran.');
-        $this->command->info('Login demo: admin@eventsphere.test / organizer@eventsphere.test / participant@eventsphere.test — password: password');
+        $this->command?->info('EventSphere seeded: '.User::count().' pengguna, '.Event::count().' event, '.Registration::count().' pendaftaran.');
+        $this->command?->info('Login demo: admin@eventsphere.test / organizer@eventsphere.test / participant@eventsphere.test — password: password');
     }
 }

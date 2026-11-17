@@ -94,6 +94,15 @@ class PublicPagesTest extends TestCase
         $this->get(route('events.show', $event->slug))->assertNotFound();
     }
 
+    public function test_event_poster_url_uses_the_configured_public_disk_url(): void
+    {
+        config(['filesystems.disks.public.url' => 'https://cdn.eventsphere.test/storage']);
+
+        $event = Event::factory()->create(['poster_path' => 'posters/poster.jpg']);
+
+        $this->assertSame('https://cdn.eventsphere.test/storage/posters/poster.jpg', $event->posterUrl());
+    }
+
     public function test_category_page_filter_lists_matching_events(): void
     {
         $category = Category::factory()->create(['name' => 'Workshop Kreatif']);

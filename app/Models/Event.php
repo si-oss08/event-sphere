@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 #[Fillable([
@@ -185,7 +186,7 @@ class Event extends Model
         if ($this->poster_path) {
             return Str::startsWith($this->poster_path, ['http://', 'https://'])
                 ? $this->poster_path
-                : asset('storage/'.$this->poster_path);
+                : Storage::disk('public')->url($this->poster_path);
         }
 
         return 'https://picsum.photos/seed/eventsphere-'.$this->id.'/800/500';
